@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- 核保专员用form -->
+        <record id="view_form_credit_sj_guar_appl_fdb" model="ir.ui.view">
+            <field name="name">credit.sj.guarantee.application.form</field>
+            <field name="model">credit.sj.guarantee.application</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+
+                <form string="窗体名称" version="7.0">
+                    <header>
+                        <button name="btn_done" string="提交完成" states="get_office" type="object" class="oe_highlight"
+                                groups="credit_sj_guarantee_application.group_credit_sj_guarantee_officer"/>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,submit,wait_officer,get_office,done"
+                               statusbar_colors='{"invoice_except":"red","waiting_date":"blue"}'/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="company_name" readonly="True"/>
+                                <field name="main_manager" readonly="True" options='{"no_open":True}'/>
+                                <field name="assist_manager" readonly="True" options='{"no_open":True}'/>
+                                <field name="operator_manager" readonly="True" options='{"no_open":True}'/>
+                            </group>
+                            <group>
+                                <field name="submit_time"/>
+                                <field name="main_phone" readonly="True"/>
+                                <field name="assist_phone" readonly="True"/>
+                                <field name="operator_phone" readonly="True"/>
+                            </group>
+                            <group>
+                                <field name="credit_customer_name" readonly="True"/>
+                                <field name="customer_property" readonly="True"/>
+                                <field name="credit_approval_date" readonly="True"/>
+                                <field name="line_of_credit" readonly="True"/>
+                                <field name="credit_money" readonly="True"/>
+                                <field name="plan_guarantee_date" readonly="True"/>
+                            </group>
+                            <group>
+                                <field name="customer_city" readonly="True" options='{"no_open":True}'/>
+                                <field name="customer_credit_rating" readonly="True"/>
+                                <field name="approval_no" readonly="True"/>
+                                <field name="credit_business_type" readonly="True"/>
+                                <field name="credit_scale_start_date" readonly="True"/>
+                                <field name="plan_lend_date" readonly="True"/>
+                            </group>
+                            <group>
+                                <field name="guarantor1_name" readonly="True"/>
+                                <field name="guarantor1_city" options='{"no_open":True}' readonly="True"/>
+                                <field name="address" readonly="True"/>
+                                <field name="guarantor1_guarantee_way" readonly="True"/>
+                            </group>
+                            <group>
+                                <field name="guarantor1_guarantee_amount" readonly="True"/>
+                                <field name="guarantor1_county" options='{"no_open":True}' readonly="True"/>
+                                <field name="guarantor1_guaranty" readonly="True"/>
+                            </group>
+                            <group>
+                                <field name="guarantor2_name" readonly="True"/>
+                                <field name="guarantor2_city" options='{"no_open":True}' readonly="True"/>
+                                <field name="guarantor2_guarantee_way" readonly="True"/>
+                            </group>
+                            <group>
+                                <field name="guarantor2_guarantee_amount" readonly="True"/>
+                                <field name="guarantor2_county" options='{"no_open":True}' readonly="True"/>
+                                <field name="guarantor2_guaranty" readonly="True"/>
+                            </group>
+                            <group>
+                                <field name="guarantor3_name" readonly="True"/>
+                                <field name="guarantor3_city" options='{"no_open":True}' readonly="True"/>
+                                <field name="guarantor3_guarantee_way" readonly="True"/>
+                            </group>
+                            <group>
+                                <field name="guarantor3_guarantee_amount" readonly="True"/>
+                                <field name="guarantor3_county" options='{"no_open":True}' readonly="True"/>
+                                <field name="guarantor3_guaranty" readonly="True"/>
+                            </group>
+                            <group>
+                                <field name="guarantor4_name" readonly="True"/>
+                                <field name="guarantor4_city" options='{"no_open":True}' readonly="True"/>
+                                <field name="guarantor4_guarantee_way" readonly="True"/>
+                            </group>
+                            <group>
+                                <field name="guarantor4_guarantee_amount" readonly="True"/>
+                                <field name="guarantor4_county" options='{"no_open":True}' readonly="True"/>
+                                <field name="guarantor4_guaranty" readonly="True"/>
+                            </group>
+                            <group>
+                                <field name="guarantor5_name" readonly="True"/>
+                                <field name="guarantor5_city" options='{"no_open":True}' readonly="True"/>
+                                <field name="guarantor5_guarantee_way" readonly="True"/>
+                            </group>
+                            <group>
+                                <field name="guarantor5_guarantee_amount" readonly="True"/>
+                                <field name="guarantor5_county" options='{"no_open":True}' readonly="True"/>
+                                <field name="guarantor5_guaranty" readonly="True"/>
+                            </group>
+                            <group>
+                                <field name="credit_approval_filename" />
+                                <field name="credit_approval" filename="credit_approval_filename"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="credit_report_filename" />
+                                <field name="credit_report" filename="credit_report_filename"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="note"
+                                   attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                            <field name="guarantee_user" widget="selection"
+                                   attrs="{'invisible':[('state','in',('draft','return','submit'))]}"/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="guarantee_result"
+                                       attrs="{'invisible':[('state','in',('draft','return','submit','wait_officer'))],
+                                       'readonly':[('state','=',('done'))]}"/>
+                            </group>
+                            <group>
+
+                            </group>
+                        </group>
+                        <group>
+                            <field name="guarantee_result_note"
+                                   attrs="{'invisible':[('state','in',('draft','return','submit','wait_officer'))],
+                                   'readonly':[('state','=',('done'))]}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- 核保团队、客户经理核保信息查询用form -->
+        <record id="view_form_credit_sj_guar_appl" model="ir.ui.view">
+            <field name="name">credit.sj.guar.appl.form</field>
+            <field name="model">credit.sj.guarantee.application</field>
+            <field name="arch" type="xml">
+                <form string="窗体名称" version="7.0">
+                    <header>
+                        <button name="btn_review" states="draft,return" string="提交审核"
+                                groups="credit_sj_guarantee_application.group_credit_sj_guarantee_manager"
+                                type="object" class="oe_highlight"/>
+                        <button name="btn_return" string="退回" states="get_office" type="object" class="oe_highlight"
+                                groups="credit_sj_guarantee_application.group_credit_sj_guarantee_team"/>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,submit,wait_officer,get_office,done"
+                               statusbar_colors='{"invoice_except":"red","waiting_date":"blue"}'/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="company_name"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="main_manager" options='{"no_open":True}'
+                                       domain="[('job','=','guarantee_manager')]"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="assist_manager" options='{"no_open":True}'
+                                       domain="[('job','=','guarantee_manager')]"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="operator_manager" options='{"no_open":True}'
+                                       domain="[('job','=','guarantee_manager')]"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                            </group>
+                            <group>
+                                <field name="submit_time"/>
+                                <field name="main_phone" data-inputmask="'mask': '99999999999'"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="assist_phone" data-inputmask="'mask': '99999999999'"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="operator_phone" data-inputmask="'mask': '99999999999'"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                            </group>
+                            <group>
+                                <field name="credit_customer_name"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="customer_property"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="credit_approval_date"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="line_of_credit"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="credit_money"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="plan_guarantee_date"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                            </group>
+                            <group>
+                                <field name="customer_city" options='{"no_open":True}'
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="customer_credit_rating"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="approval_no"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="credit_business_type"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="credit_scale_start_date"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="plan_lend_date"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                            </group>
+                            <group>
+                                <field name="guarantor1_name"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="guarantor1_city" options='{"no_open":True}'
+                                       on_change="onchange_city_county(guarantor1_city,'guarantor1_county')"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="address"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="guarantor1_guarantee_way"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                            </group>
+                            <group>
+                                <field name="guarantor1_guarantee_amount"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="guarantor1_county" options='{"no_open":True}'
+                                       domain="[('city_id','=',guarantor1_city)]" context='{"city_id":guarantor1_city}'
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="guarantor1_guaranty"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                            </group>
+                            <group>
+                                <field name="guarantor2_name"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="guarantor2_city" options='{"no_open":True}'
+                                       on_change="onchange_city_county(guarantor2_city,'guarantor2_county')"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="guarantor2_guarantee_way"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                            </group>
+                            <group>
+                                <field name="guarantor2_guarantee_amount"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="guarantor2_county" options='{"no_open":True}'
+                                       domain="[('city_id','=',guarantor2_city)]" context='{"city_id":guarantor2_city}'
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="guarantor2_guaranty"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                            </group>
+                            <group>
+                                <field name="guarantor3_name"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="guarantor3_city" options='{"no_open":True}'
+                                       on_change="onchange_city_county(guarantor3_city,'guarantor3_county')"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="guarantor3_guarantee_way"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                            </group>
+                            <group>
+                                <field name="guarantor3_guarantee_amount"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="guarantor3_county" options='{"no_open":True}'
+                                       domain="[('city_id','=',guarantor3_city)]" context='{"city_id":guarantor3_city}'
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="guarantor3_guaranty"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                            </group>
+                            <group>
+                                <field name="guarantor4_name"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="guarantor4_city" options='{"no_open":True}'
+                                       on_change="onchange_city_county(guarantor4_city,'guarantor4_county')"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="guarantor4_guarantee_way"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                            </group>
+                            <group>
+                                <field name="guarantor4_guarantee_amount"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="guarantor4_county" options='{"no_open":True}'
+                                       domain="[('city_id','=',guarantor4_city)]" context='{"city_id":guarantor4_city}'
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="guarantor4_guaranty"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                            </group>
+                            <group>
+                                <field name="guarantor5_name"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="guarantor5_city" options='{"no_open":True}'
+                                       on_change="onchange_city_county(guarantor5_city,'guarantor5_county')"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="guarantor5_guarantee_way"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                            </group>
+                            <group>
+                                <field name="guarantor5_guarantee_amount"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="guarantor5_county" options='{"no_open":True}'
+                                       domain="[('city_id','=',guarantor5_city)]" context='{"city_id":guarantor5_city}'
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="guarantor5_guaranty"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                            </group>
+                            <group>
+                                <field name="credit_approval_filename" />
+                                <field name="credit_approval" filename="credit_approval_filename"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                                <field name="credit_report_filename" />
+                                <field name="credit_report" filename="credit_report_filename"
+                                       attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="note"
+                                   attrs="{'readonly':[('state','not in',('draft','return'))]}"/>
+                            <field name="guarantee_user" widget="selection"
+                                   attrs="{'invisible':[('state','in',('draft','return','submit'))]}"/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="guarantee_result" readonly="True"
+                                       attrs="{'invisible':[('state','in',('draft','return','submit','wait_officer','get_office'))]}"/>
+                            </group>
+                            <group>
+
+                            </group>
+                        </group>
+                        <group>
+                            <field name="guarantee_result_note" readonly="True"
+                                   attrs="{'invisible':[('state','in',('draft','return','submit','wait_officer','get_office'))]}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- 核保信息查询tree -->
+        <record id="view_tree_credit_sj_guar_appl" model="ir.ui.view">
+            <field name="name">credit.sj.guar.appl.tree</field>
+            <field name="model">credit.sj.guarantee.application</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree string="核保申请查询信息" create="false"
+                      colors="grey:state=='done';blue:state == 'draft';red:state =='return'">
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="credit_customer_name"/>
+                    <field name="customer_property"/>
+                    <field name="customer_city"/>
+                    <field name="plan_guarantee_date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--  核保申请及录入信息窗体事件 -->
+        <record id="action_credit_sj_guar_appl_create" model="ir.actions.act_window">
+            <field name="name">核保申请及录入信息</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">credit.sj.guarantee.application</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_form_credit_sj_guar_appl"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    核保信息查询
+                </p>
+            </field>
+        </record>
+
+        <!--核保信息条件查询-->
+        <record id="search_credit_sj_guar_application" model="ir.ui.view">
+            <field name="name">search.credit.sj.guar.application.Search</field>
+            <field name="model">credit.sj.guarantee.application</field>
+            <field name="arch" type="xml">
+                <search string="名称">
+                    <field name="name"/>
+                    <field name="credit_customer_name"/>
+                    <separator/>
+                </search>
+            </field>
+        </record>
+
+        <!--  核保信息查询窗体事件 -->
+        <record id="action_credit_sj_guar_appl_search" model="ir.actions.act_window">
+            <field name="name">核保申请单查询</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">credit.sj.guarantee.application</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="search_credit_sj_guar_application"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    核保信息查询
+                </p>
+            </field>
+        </record>
+        <!--客户经理查询申请单信息优先级-->
+        <record model="ir.actions.act_window.view" id="act_credit_sj_guar_offier_tree_view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_tree_credit_sj_guar_appl"/>
+            <field name="act_window_id" ref="action_credit_sj_guar_appl_search"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_credit_sj_guar_officer_form_view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_form_credit_sj_guar_appl"/>
+            <field name="act_window_id" ref="action_credit_sj_guar_appl_search"/>
+        </record>
+
+
+        <!--核保团队查询申请单信息窗体-->
+        <record id="action_credit_sj_guarantee_application_team" model="ir.actions.act_window">
+            <field name="name">核保申请单</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">credit.sj.guarantee.application</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state','=','get_office')]</field>
+            <!--<field name="view_id" ref="view_tree_credit_sj_guarantee_application"/>-->
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    核保信息查询
+                </p>
+            </field>
+        </record>
+        <!--查询申请单信息优先级-->
+        <record model="ir.actions.act_window.view" id="act_credit_sj_guarantee_team_tree_view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_tree_credit_sj_guar_appl"/>
+            <field name="act_window_id" ref="action_credit_sj_guarantee_application_team"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_credit_sj_guarantee_team_form_view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_form_credit_sj_guar_appl"/>
+            <field name="act_window_id" ref="action_credit_sj_guarantee_application_team"/>
+        </record>
+
+
+        <!--一级菜单-->
+        <menuitem name="核保" id="menu_credit_sj_guarante" sequence="1"/>
+
+        <!--二级菜单-->
+        <menuitem name="核保管理" id="menu_credit_sj_guarantee_manage" parent="menu_credit_sj_guarante"
+                  sequence="1"/>
+
+        <!--三级菜单-->
+        <!--核保经理-->
+        <menuitem name="核保申请" id="menu_credit_sj_guarantee_application" parent="menu_credit_sj_guarantee_manage"
+                  action="action_credit_sj_guar_appl_create" sequence="1"/>
+        <menuitem name="核保信息查询" id="menu_credit_sj_guarantee_application_search"
+                  parent="menu_credit_sj_guarantee_manage"
+                  action="action_credit_sj_guar_appl_search" sequence="2"/>
+        <!--核保团队-->
+        <menuitem name="核保任务管理" id="menu_credit_sj_guarantee_task_manage" parent="menu_credit_sj_guarantee_manage"
+                  action="credit_sj_guarantee_route.action_credit_sj_guarantee_route" sequence="3"/>
+        <menuitem name="退回申请单" id="menu_credit_sj_guarantee_application_return" parent="menu_credit_sj_guarantee_manage"
+                  action="action_credit_sj_guarantee_application_team" sequence="4"/>
+        <!--核保专员-->
+        <menuitem name="核保任务反馈" id="menu_credit_sj_guar_res_feedback" parent="menu_credit_sj_guarantee_manage"
+                  action="credit_sj_guarantee_route.action_credit_sj_route_feedback" sequence="5"/>
+    </data>
+</openerp>
+

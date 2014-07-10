@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_voucher_supplier_product_categ_tree">
+            <field name="name">account.voucher.supplier_product_categ.tree</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_voucher_tree"/>
+            <field name="arch" type="xml">
+              <field name="date" position="after">
+                <field name="product_categ_id" invisible="1"/>
+              </field>
+            </field>
+          </record>
+
+        <record id="view_voucher_supplier_product_categ_filter" model="ir.ui.view">
+            <field name="name">account.voucher.supplier.product_categ.select</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_voucher_filter_vendor_pay"/>
+            <field name="arch" type="xml">
+              <field name="date" position="after">
+                <field name="product_categ_id"/>
+              </field>
+              <filter string="Status" position="after">
+                <filter string="供货类型" domain="[]" context="{'group_by': 'product_categ_id'}"/> 
+              </filter>
+            </field>
+        </record>
+      </data>
+</openerp>

@@ -1,0 +1,16 @@
+<openerp>
+    <data>
+        <record id="res_partner_view_supplier_product_categ" model="ir.ui.view">
+            <field name="name">res.partner.view.supplier.product_categ</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+			<field name="priority" eval="40"/>
+            <field name="arch" type="xml">
+				<xpath expr="/form/notebook/page[@string='Sales &amp; Purchases']/field[@name='supplier']" position="after">
+				  <field name="product_categ_id" attrs="{'invisible': [('supplier', '=', False)]}"/>
+				</xpath>
+            </field>
+        </record>
+      </data>
+</openerp>
+

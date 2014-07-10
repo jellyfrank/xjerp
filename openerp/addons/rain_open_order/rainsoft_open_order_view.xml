@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+
+        <!--搜索...-->
+        <record id="rainsoft_open_order_search_view" model="ir.ui.view">
+            <field name="name">rainsoft.open.order.line.search.view</field>
+            <field name="model">rainsoft.open.order.line</field>
+            <field name="arch" type="xml">
+                <search string="Serach Open Order">
+                    <field name="partner_id" string="Partner"/>
+                    <group expand="0" string="Group By...">
+                        <filter string="品牌" context="{'group_by':'brand'}"/>
+                        <filter string="省份" context="{'group_by':'state_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!--表单查询-->
+        <record id="rainsoft_open_order_form_view" model="ir.ui.view">
+            <field name="name">rainsoft.open.order_form_view</field>
+            <field name="model">rainsoft.open.order</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string='rainsoft open order' version="7.0">
+                    <group>
+                        <field name="from_date"  requried="True" string="开始日期"/>
+                        <field name="to_date"   requried="True" string="结束日期"/>
+                        <field name="preight_product_id"   requried="True" string="运费产品"/>
+                    </group>
+                    <group>
+                        <p>说明：<br/>
+                           查询结果：包含“开始日期”不包含 “结束日期”。<br/>
+                           运费产品：是为了做“运费统计” 查询使用的产品<br/>
+                        </p>
+                    </group>
+                    <footer>
+                        <button name="action_query" string="查询" type="object" class="oe_highlight"/>
+                        or
+                        <button string="取消" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- 列表-->
+        <record id="rainsoft_open_order_line_tree_view" model="ir.ui.view">
+            <field name="name">rainsoft.open.order.line.tree.view</field>
+            <field name="model">rainsoft.open.order.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="rainsoft open order line">
+                    <field name="partner_id" string="新店名称"></field>
+                    <field name="state_id" string="省份"></field>
+                    <field name="brand" string="品牌"/>
+                    <field name="order_amount" sum="Total Current In Amount" string="订单金额"/>
+                    <field name="cost_amount" sum="Total Current In Amount" string="成本金额"/>
+                    <field name="preight_amount" sum="Total Current In Amount" string="运费统计"/>
+                    <field name="profit" sum="Total Current In Amount" string="利润"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--action 动作-->
+        <record id="action_open_order" model="ir.actions.act_window">
+            <field name="name">开业订单一览表</field>
+            <field name="res_model">rainsoft.open.order</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="rainsoft_open_order_form_view"/>
+            <field name="context">{}</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem name="开业订单一览表" id="menu_open_order" action="action_open_order" parent="base.menu_sales"
+                  sequence="4"/>
+    </data>
+</openerp>

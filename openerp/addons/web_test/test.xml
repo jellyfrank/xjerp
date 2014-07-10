@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.actions.client" id="action_client_test">
+            <field name="name">Test Action</field>
+            <field name="tag">test.action</field>
+        </record>
+        <menuitem action="action_client_test" id="menu_client_example"/>
+    </data>
+</openerp>

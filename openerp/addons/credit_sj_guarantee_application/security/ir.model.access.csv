@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_credit_sj_guarantee_manager,Guarantee Manager,model_credit_sj_guarantee_application,group_credit_sj_guarantee_manager,1,1,1,1
+access_sj_city_manager,City Manager,sj_city_county.model_sj_city,group_credit_sj_guarantee_manager,1,0,0,0
+access_sj_county_manager,County Manager,sj_city_county.model_sj_county,group_credit_sj_guarantee_manager,1,0,0,0
+
+access_credit_sj_guarantee_officer,Guarantee Officer,model_credit_sj_guarantee_application,group_credit_sj_guarantee_officer,1,1,0,0
+access_guarantee_sj_route_officer,Guarantee_route Officer,credit_sj_guarantee_route.model_credit_sj_guarantee_route,group_credit_sj_guarantee_officer,1,1,0,0
+access_sj_city_officer,City Officer,sj_city_county.model_sj_city,group_credit_sj_guarantee_officer,1,0,0,0
+access_sj_county_officer,County Officer,sj_city_county.model_sj_county,group_credit_sj_guarantee_officer,1,0,0,0
+
+access_credit_sj_guarantee_team,Guarantee Team,model_credit_sj_guarantee_application,group_credit_sj_guarantee_team,1,1,0,0
+access_guarantee_sj_route_team,Guarantee_route Team,credit_sj_guarantee_route.model_credit_sj_guarantee_route,group_credit_sj_guarantee_team,1,1,0,1
+access_sj_city_team,City Team,sj_city_county.model_sj_city,group_credit_sj_guarantee_team,1,0,0,0
+access_sj_county_team,County Team,sj_city_county.model_sj_county,group_credit_sj_guarantee_team,1,0,0,0

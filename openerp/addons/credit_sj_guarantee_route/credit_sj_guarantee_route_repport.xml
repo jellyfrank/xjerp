@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <report auto="False"
+                id="report_credit_sj_guarantee_route"
+                model="credit.sj.guarantee.route"
+                name="credit.sj.guarantee.route"
+                rml="credit_sj_guarantee_route/report/credit_sj_guarantee_route_report.rml"
+                menu="True"
+                string="核保路线"/>
+
+    </data>
+</openerp>

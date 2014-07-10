@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!--地市form-->
+        <record id="view_form_sj_city" model="ir.ui.view">
+            <field name="name">sj.city.form</field>
+            <field name="model">sj.city</field>
+            <field name="arch" type="xml">
+                <form string="窗体名称" version="7.0">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--区县form-->
+        <record id="view_form_sj_county" model="ir.ui.view">
+            <field name="name">sj.county.form</field>
+            <field name="model">sj.county</field>
+            <field name="arch" type="xml">
+                <form string="窗体名称" version="7.0">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="city_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--地市tree-->
+        <record id="view_tree_sj_city" model="ir.ui.view">
+            <field name="name">sj.city.tree</field>
+            <field name="model">sj.city</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+        <!--区县tree-->
+        <record id="view_tree_sj_county" model="ir.ui.view">
+            <field name="name">sj.county.tree</field>
+            <field name="model">sj.county</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="city_id"/>
+                </tree>
+            </field>
+        </record>
+        <!--地市窗口-->
+        <record id="action_sj_city" model="ir.actions.act_window">
+            <field name="name">地市维护</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sj.city</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tree_sj_city"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    地市维护
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_tree_view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_tree_sj_city"/>
+            <field name="act_window_id" ref="action_sj_city"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_form_view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_form_sj_city"/>
+            <field name="act_window_id" ref="action_sj_city"/>
+        </record>
+        <!--区县窗口-->
+        <record id="action_sj_county" model="ir.actions.act_window">
+            <field name="name">区县维护</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sj.county</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tree_sj_county"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    区县维护
+                </p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_tree_view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_tree_sj_county"/>
+            <field name="act_window_id" ref="action_sj_county"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_form_view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_form_sj_county"/>
+            <field name="act_window_id" ref="action_sj_county"/>
+        </record>
+
+        <menuitem name="基础信息维护" id="menu_sj_base_information" parent="base.menu_administration"/>
+        <menuitem name="地市" id="menu_sj_city" parent="menu_sj_base_information" action="action_sj_city"
+                  sequence="1"/>
+        <menuitem name="区县" id="menu_sj_county" parent="menu_sj_base_information" action="action_sj_county"
+                  sequence="1"/>
+
+
+    </data>
+</openerp>

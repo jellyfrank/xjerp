@@ -1,0 +1,1039 @@
+Usage: openerp-server [options]
+
+openerp-server: error: The config file '/var/www/openerp/openerp-7.0/openerp-server.conf' selected with -c/--config doesn't exist, use -s/--save if you want to generate it
+Usage: openerp-server [options]
+
+openerp-server: error: The config file '/var/www/openerp/openerp-7.0/openerp-server.conf' selected with -c/--config doesn't exist, use -s/--save if you want to generate it
+Usage: openerp-server [options]
+
+openerp-server: error: The config file '/var/www/openerp/openerp-7.0/openerp-server.conf' selected with -c/--config doesn't exist, use -s/--save if you want to generate it
+Usage: openerp-server [options]
+
+openerp-server: error: The config file '/var/www/openerp/openerp-7.0/openerp-server.conf' selected with -c/--config doesn't exist, use -s/--save if you want to generate it
+Usage: openerp-server [options]
+
+openerp-server: error: The config file '/var/www/openerp/openerp-7.0/openerp-server.conf' selected with -c/--config doesn't exist, use -s/--save if you want to generate it
+Usage: openerp-server [options]
+
+openerp-server: error: The config file '/var/www/openerp/openerp-7.0/openerp-server.conf' selected with -c/--config doesn't exist, use -s/--save if you want to generate it
+Usage: openerp-server [options]
+
+openerp-server: error: The config file '/var/www/openerp/openerp-7.0/openerp-server.conf' selected with -c/--config doesn't exist, use -s/--save if you want to generate it
+Usage: openerp-server [options]
+
+openerp-server: error: The config file '/var/www/openerp/openerp-7.0/openerp-server.conf' selected with -c/--config doesn't exist, use -s/--save if you want to generate it
+2014-03-12 13:55:06,379 20754 INFO ? openerp: OpenERP version 7.0-20140311-003137
+2014-03-12 13:55:06,379 20754 INFO ? openerp: addons paths: /var/www/openerp/openerp-7.0/openerp/addons
+2014-03-12 13:55:06,379 20754 INFO ? openerp: database hostname: localhost
+2014-03-12 13:55:06,379 20754 INFO ? openerp: database port: 5432
+2014-03-12 13:55:06,379 20754 INFO ? openerp: database user: root
+2014-03-12 13:55:06,600 20754 INFO ? openerp.addons.google_docs.google_docs: GData lib version `%s GData-Python/2.0.14` detected
+2014-03-12 13:55:06,778 20754 INFO ? openerp.service.wsgi_server: HTTP service (werkzeug) running on 0.0.0.0:8069
+2014-03-12 13:55:06,779 20754 INFO ? openerp: OpenERP server is running, waiting for connections...
+2014-03-12 13:55:41,088 20754 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 13:55:41,088 20754 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 13:55:41,091 20754 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 13:55:41] "GET / HTTP/1.1" 500 -
+2014-03-12 13:55:41,275 20754 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 13:55:41] "GET /favicon.ico HTTP/1.1" 404 -
+sudo: unknown user: openrp
+sudo: unable to initialize policy plugin
+sudo: unknown user: openrp
+sudo: unable to initialize policy plugin
+sudo: unknown user: openrp
+sudo: unable to initialize policy plugin
+sudo: unknown user: openrp
+sudo: unable to initialize policy plugin
+sudo: unknown user: openrp
+sudo: unable to initialize policy plugin
+sudo: unknown user: openrp
+sudo: unable to initialize policy plugin
+sudo: unknown user: openrp
+sudo: unable to initialize policy plugin
+sudo: unknown user: openrp
+sudo: unable to initialize policy plugin
+2014-03-12 14:02:47,935 20911 INFO ? openerp: OpenERP version 7.0-20140311-003137
+2014-03-12 14:02:47,936 20911 INFO ? openerp: addons paths: /var/www/openerp/openerp-7.0/openerp/addons
+2014-03-12 14:02:47,936 20911 INFO ? openerp: database hostname: localhost
+2014-03-12 14:02:47,936 20911 INFO ? openerp: database port: 5432
+2014-03-12 14:02:47,936 20911 INFO ? openerp: database user: root
+2014-03-12 14:02:48,156 20911 INFO ? openerp.addons.google_docs.google_docs: GData lib version `%s GData-Python/2.0.14` detected
+2014-03-12 14:02:48,333 20911 INFO ? openerp: OpenERP server is running, waiting for connections...
+2014-03-12 14:02:48,334 20911 INFO ? openerp.service.wsgi_server: HTTP service (werkzeug) running on 0.0.0.0:8069
+2014-03-12 14:02:57,134 20911 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:02:57,134 20911 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:02:57,136 20911 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:02:57] "GET / HTTP/1.1" 500 -
+2014-03-12 14:02:58,702 20911 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:02:58,702 20911 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:02:58,703 20911 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:02:58] "GET / HTTP/1.1" 500 -
+2014-03-12 14:03:29,989 20911 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:03:29,990 20911 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:03:29,992 20911 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:03:29] "GET / HTTP/1.1" 500 -
+2014-03-12 14:03:30,745 20911 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:03:30,746 20911 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:03:30,747 20911 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:03:30] "GET / HTTP/1.1" 500 -
+2014-03-12 14:03:31,246 20911 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:03:31,247 20911 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:03:31,249 20911 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:03:31] "GET / HTTP/1.1" 500 -
+2014-03-12 14:03:31,491 20911 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:03:31,492 20911 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:03:31,493 20911 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:03:31] "GET / HTTP/1.1" 500 -
+2014-03-12 14:03:31,726 20911 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:03:31,726 20911 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:03:31,729 20911 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:03:31] "GET / HTTP/1.1" 500 -
+2014-03-12 14:03:32,161 20911 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:03:32,162 20911 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:03:32,164 20911 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:03:32] "GET / HTTP/1.1" 500 -
+2014-03-12 14:09:11,779 21024 INFO ? openerp: OpenERP version 7.0-20140311-003137
+2014-03-12 14:09:11,779 21024 INFO ? openerp: addons paths: /var/www/openerp/openerp-7.0/openerp/addons
+2014-03-12 14:09:11,779 21024 INFO ? openerp: database hostname: localhost
+2014-03-12 14:09:11,779 21024 INFO ? openerp: database port: 5432
+2014-03-12 14:09:11,779 21024 INFO ? openerp: database user: root
+2014-03-12 14:09:12,005 21024 INFO ? openerp.addons.google_docs.google_docs: GData lib version `%s GData-Python/2.0.14` detected
+2014-03-12 14:09:12,182 21024 INFO ? openerp: OpenERP server is running, waiting for connections...
+2014-03-12 14:09:12,182 21024 INFO ? openerp.service.wsgi_server: HTTP service (werkzeug) running on 0.0.0.0:8069
+2014-03-12 14:09:21,611 21024 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:09:21,612 21024 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:09:21,614 21024 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:09:21] "GET / HTTP/1.1" 500 -
+2014-03-12 14:27:52,712 21311 INFO ? openerp: OpenERP version 7.0-20140311-003137
+2014-03-12 14:27:52,712 21311 INFO ? openerp: addons paths: /var/www/openerp/openerp-7.0/openerp/addons
+2014-03-12 14:27:52,712 21311 INFO ? openerp: database hostname: localhost
+2014-03-12 14:27:52,712 21311 INFO ? openerp: database port: 5432
+2014-03-12 14:27:52,712 21311 INFO ? openerp: database user: root
+2014-03-12 14:27:52,933 21311 INFO ? openerp.addons.google_docs.google_docs: GData lib version `%s GData-Python/2.0.14` detected
+2014-03-12 14:27:53,110 21311 INFO ? openerp.service.wsgi_server: HTTP service (werkzeug) running on 0.0.0.0:8069
+2014-03-12 14:27:53,110 21311 INFO ? openerp: OpenERP server is running, waiting for connections...
+2014-03-12 14:27:59,803 21311 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:27:59,804 21311 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:27:59,809 21311 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:27:59] "GET / HTTP/1.1" 500 -
+2014-03-12 14:28:00,793 21311 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:28:00,794 21311 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:28:00,796 21311 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:28:00] "GET / HTTP/1.1" 500 -
+2014-03-12 14:28:02,504 21311 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:28:02,505 21311 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:28:02,507 21311 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:28:02] "GET / HTTP/1.1" 500 -
+2014-03-12 14:28:02,713 21311 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:28:02,714 21311 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:28:02,715 21311 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:28:02] "GET / HTTP/1.1" 500 -
+2014-03-12 14:28:02,883 21311 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:28:02,883 21311 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:28:02,884 21311 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:28:02] "GET / HTTP/1.1" 500 -
+2014-03-12 14:28:03,056 21311 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:28:03,057 21311 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:28:03,058 21311 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:28:03] "GET / HTTP/1.1" 500 -
+2014-03-12 14:28:03,258 21311 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:28:03,258 21311 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:28:03,260 21311 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:28:03] "GET / HTTP/1.1" 500 -
+2014-03-12 14:28:03,468 21311 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:28:03,469 21311 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:28:03,470 21311 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:28:03] "GET / HTTP/1.1" 500 -
+2014-03-12 14:28:03,625 21311 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:28:03,626 21311 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:28:03,627 21311 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:28:03] "GET / HTTP/1.1" 500 -
+2014-03-12 14:35:01,176 21311 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:35:01,177 21311 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:35:01,179 21311 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:35:01] "GET / HTTP/1.1" 500 -
+2014-03-12 14:35:02,561 21311 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:35:02,562 21311 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:35:02,564 21311 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:35:02] "GET / HTTP/1.1" 500 -
+2014-03-12 14:35:03,192 21311 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:35:03,192 21311 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:35:03,194 21311 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:35:03] "GET / HTTP/1.1" 500 -
+2014-03-12 14:35:03,756 21311 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:35:03,756 21311 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:35:03,758 21311 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:35:03] "GET / HTTP/1.1" 500 -
+2014-03-12 14:35:04,120 21311 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:35:04,121 21311 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:35:04,123 21311 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:35:04] "GET / HTTP/1.1" 500 -
+2014-03-12 14:35:04,343 21311 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:35:04,344 21311 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:35:04,345 21311 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:35:04] "GET / HTTP/1.1" 500 -
+2014-03-12 14:35:04,559 21311 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:35:04,559 21311 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:35:04,561 21311 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:35:04] "GET / HTTP/1.1" 500 -
+2014-03-12 14:41:48,906 21575 INFO ? openerp: OpenERP version 7.0-20140311-003137
+2014-03-12 14:41:48,906 21575 INFO ? openerp: addons paths: /var/www/openerp/openerp-7.0/openerp/addons
+2014-03-12 14:41:48,906 21575 INFO ? openerp: database hostname: localhost
+2014-03-12 14:41:48,906 21575 INFO ? openerp: database port: 5432
+2014-03-12 14:41:48,906 21575 INFO ? openerp: database user: root
+2014-03-12 14:41:49,127 21575 INFO ? openerp.addons.google_docs.google_docs: GData lib version `%s GData-Python/2.0.14` detected
+2014-03-12 14:41:49,306 21575 INFO ? openerp.service.wsgi_server: HTTP service (werkzeug) running on 0.0.0.0:8069
+2014-03-12 14:41:49,307 21575 INFO ? openerp: OpenERP server is running, waiting for connections...
+2014-03-12 14:42:00,382 21575 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:42:00,383 21575 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:42:00,386 21575 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:42:00] "GET / HTTP/1.1" 500 -
+2014-03-12 14:42:01,244 21575 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:42:01,245 21575 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:42:01,246 21575 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:42:01] "GET / HTTP/1.1" 500 -
+2014-03-12 14:42:01,786 21575 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:42:01,786 21575 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:42:01,787 21575 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:42:01] "GET / HTTP/1.1" 500 -
+2014-03-12 14:42:02,020 21575 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:42:02,020 21575 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 14:42:02,022 21575 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 14:42:02] "GET / HTTP/1.1" 500 -
+2014-03-12 15:03:55,176 22077 INFO ? openerp: OpenERP version 7.0-20140311-003137
+2014-03-12 15:03:55,176 22077 INFO ? openerp: addons paths: /var/www/openerp/openerp-7.0/openerp/addons
+2014-03-12 15:03:55,176 22077 INFO ? openerp: database hostname: localhost
+2014-03-12 15:03:55,176 22077 INFO ? openerp: database port: 5432
+2014-03-12 15:03:55,176 22077 INFO ? openerp: database user: root
+2014-03-12 15:03:55,397 22077 INFO ? openerp.addons.google_docs.google_docs: GData lib version `%s GData-Python/2.0.14` detected
+2014-03-12 15:03:55,575 22077 INFO ? openerp: OpenERP server is running, waiting for connections...
+2014-03-12 15:03:55,575 22077 INFO ? openerp.service.wsgi_server: HTTP service (werkzeug) running on 0.0.0.0:8069
+2014-03-12 15:04:51,259 22101 INFO ? openerp: OpenERP version 7.0-20140311-003137
+2014-03-12 15:04:51,260 22101 INFO ? openerp: addons paths: /var/www/openerp/openerp-7.0/openerp/addons
+2014-03-12 15:04:51,260 22101 INFO ? openerp: database hostname: localhost
+2014-03-12 15:04:51,260 22101 INFO ? openerp: database port: 5432
+2014-03-12 15:04:51,260 22101 INFO ? openerp: database user: root
+2014-03-12 15:04:51,472 22101 INFO ? openerp.addons.google_docs.google_docs: GData lib version `%s GData-Python/2.0.14` detected
+2014-03-12 15:04:51,650 22101 INFO ? openerp: OpenERP server is running, waiting for connections...
+2014-03-12 15:04:51,650 22101 INFO ? openerp.service.wsgi_server: HTTP service (werkzeug) running on 0.0.0.0:8069
+2014-03-12 15:04:58,717 22101 ERROR ? openerp.sql_db: Connection to the database failed
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 15:04:58,718 22101 ERROR ? openerp.netsvc: FATAL:  Peer authentication failed for user "root"
+Traceback (most recent call last):
+  File "/var/www/openerp/openerp-7.0/openerp/netsvc.py", line 292, in dispatch_rpc
+    result = ExportService.getService(service_name).dispatch(method, params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 122, in dispatch
+    return fn(*params)
+  File "/var/www/openerp/openerp-7.0/openerp/service/web_services.py", line 359, in exp_list
+    cr = db.cursor()
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 484, in cursor
+    return Cursor(self._pool, self.dbname, serialized=serialized)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 182, in __init__
+    self._cnx = pool.borrow(dsn(dbname))
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 377, in _locked
+    return fun(self, *args, **kwargs)
+  File "/var/www/openerp/openerp-7.0/openerp/sql_db.py", line 440, in borrow
+    result = psycopg2.connect(dsn=dsn, connection_factory=PsycoConnection)
+  File "/usr/lib/python2.7/dist-packages/psycopg2/__init__.py", line 179, in connect
+    connection_factory=connection_factory, async=async)
+OperationalError: FATAL:  Peer authentication failed for user "root"
+
+2014-03-12 15:04:58,720 22101 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 15:04:58] "GET / HTTP/1.1" 500 -
+openerp is not in the sudoers file.  This incident will be reported.
+openerp is not in the sudoers file.  This incident will be reported.
+openerp is not in the sudoers file.  This incident will be reported.
+openerp is not in the sudoers file.  This incident will be reported.
+2014-03-12 15:16:36,638 22435 INFO ? openerp: OpenERP version 7.0-20140311-003137
+2014-03-12 15:16:36,638 22435 INFO ? openerp: addons paths: /var/www/openerp/openerp-7.0/openerp/addons
+2014-03-12 15:16:36,638 22435 INFO ? openerp: database hostname: localhost
+2014-03-12 15:16:36,638 22435 INFO ? openerp: database port: 5432
+2014-03-12 15:16:36,638 22435 INFO ? openerp: database user: openerp
+2014-03-12 15:16:36,863 22435 INFO ? openerp.addons.google_docs.google_docs: GData lib version `%s GData-Python/2.0.14` detected
+2014-03-12 15:16:37,041 22435 INFO ? openerp: OpenERP server is running, waiting for connections...
+2014-03-12 15:16:37,041 22435 INFO ? openerp.service.wsgi_server: HTTP service (werkzeug) running on 0.0.0.0:8069
+2014-03-12 15:16:41,332 22435 INFO xj0307 openerp.modules.loading: loading 1 modules...
+2014-03-12 15:16:41,345 22435 WARNING xj0307 openerp.modules.module: module web_pdf_preview: module not found
+2014-03-12 15:16:41,346 22435 WARNING xj0307 openerp.modules.module: module web_pdf_preview: module not found
+2014-03-12 15:16:41,346 22435 WARNING xj0307 openerp.modules.module: module web_pdf_preview: module not found
+2014-03-12 15:16:41,346 22435 WARNING xj0307 openerp.modules.graph: module web_pdf_preview: not installable, skipped
+2014-03-12 15:16:41,347 22435 WARNING xj0307 openerp.modules.module: module auto_select_smtp: module not found
+2014-03-12 15:16:41,347 22435 WARNING xj0307 openerp.modules.module: module auto_select_smtp: module not found
+2014-03-12 15:16:41,347 22435 WARNING xj0307 openerp.modules.module: module auto_select_smtp: module not found
+2014-03-12 15:16:41,347 22435 WARNING xj0307 openerp.modules.graph: module auto_select_smtp: not installable, skipped
+2014-03-12 15:16:41,366 22435 WARNING xj0307 openerp.modules.module: module purchase_supplied_goods: module not found
+2014-03-12 15:16:41,366 22435 WARNING xj0307 openerp.modules.module: module purchase_supplied_goods: module not found
+2014-03-12 15:16:41,367 22435 WARNING xj0307 openerp.modules.module: module purchase_supplied_goods: module not found
+2014-03-12 15:16:41,367 22435 WARNING xj0307 openerp.modules.graph: module purchase_supplied_goods: not installable, skipped
+2014-03-12 15:16:41,369 22435 WARNING xj0307 openerp.modules.module: module oecn_base_fonts: module not found
+2014-03-12 15:16:41,369 22435 WARNING xj0307 openerp.modules.module: module oecn_base_fonts: module not found
+2014-03-12 15:16:41,369 22435 WARNING xj0307 openerp.modules.module: module oecn_base_fonts: module not found
+2014-03-12 15:16:41,369 22435 WARNING xj0307 openerp.modules.graph: module oecn_base_fonts: not installable, skipped
+2014-03-12 15:16:41,374 22435 WARNING xj0307 openerp.modules.graph: Some modules were not loaded.
+2014-03-12 15:16:41,375 22435 INFO xj0307 openerp.modules.loading: loading 88 modules...
+2014-03-12 15:16:41,826 22435 INFO xj0307 openerp.modules.loading: Modules loaded.
+2014-03-12 15:16:41,850 22435 INFO xj0307 werkzeug: 127.0.0.1 - - [12/Mar/2014 15:16:41] "GET /?db=xj0307 HTTP/1.1" 200 -
+2014-03-12 15:16:41,911 22435 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 15:16:41] "GET /web/static/src/css/full.css HTTP/1.1" 304 -
+2014-03-12 15:16:41,999 22435 INFO xj0307 werkzeug: 127.0.0.1 - - [12/Mar/2014 15:16:41] "GET /web/webclient/css?db=xj0307 HTTP/1.1" 304 -
+2014-03-12 15:16:42,762 22435 INFO xj0307 werkzeug: 127.0.0.1 - - [12/Mar/2014 15:16:42] "GET /web/webclient/js?db=xj0307 HTTP/1.1" 304 -
+2014-03-12 15:16:42,986 22435 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 15:16:42] "POST /web/session/get_session_info HTTP/1.1" 200 -
+2014-03-12 15:16:43,000 22435 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 15:16:42] "POST /web/webclient/qweblist HTTP/1.1" 200 -
+2014-03-12 15:16:43,004 22435 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 15:16:43] "POST /web/webclient/bootstrap_translations HTTP/1.1" 200 -
+2014-03-12 15:16:43,072 22435 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 15:16:43] "POST /web/proxy/load HTTP/1.1" 200 -
+2014-03-12 15:16:43,137 22435 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 15:16:43] "GET /web/binary/company_logo?session_id=ceb0060f16854882b45e0616d8a2c7a7 HTTP/1.1" 200 -
+2014-03-12 15:16:43,178 22435 INFO ? werkzeug: 127.0.0.1 - - [12/Mar/2014 15:16:43] "POST /web/database/get_list HTTP/1.1" 200 -
+2014-03-12 15:16:43,205 22435 INFO xj0307 werkzeug: 127.0.0.1 - - [12/Mar/2014 15:16:43] "POST /auth_signup/get_config HTTP/1.1" 200 -

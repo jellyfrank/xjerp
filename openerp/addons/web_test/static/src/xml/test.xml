@@ -1,0 +1,11 @@
+<templates>
+    <div t-name="web_test.action" class="oe_web_test oe_web_test_stopped">
+        <h4 class="oe_web_test_timer">00:00:00</h4>
+        <p class="oe_web_test_start">
+            <button type="button">Start</button>
+        </p>
+        <p class="oe_web_test_stop">
+            <button type="button">Stop</button>
+        </p>
+    </div>
+</templates>

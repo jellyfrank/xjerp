@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+       <report auto="False" id="rainsoft_qc_report" model="stock.picking.in" name="stock.qc" rml="stock_qc/report/rainsoft_qc_report.rml" string="QC Order" usage="default"/>
+        
+         <!--<record id="rainsoft_report_saleout" model="ir.actions.report.xml">
+	          <field name="report_type">pdf</field>
+	          </record>-->
+    </data>
+</openerp>

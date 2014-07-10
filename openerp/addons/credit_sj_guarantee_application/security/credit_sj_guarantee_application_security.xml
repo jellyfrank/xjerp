@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+    <!--noupdate=“1” 表示，模块升级时候不更新本文件数据。-->
+    <data noupdate="0">
+
+        <!-- ir.model.access.csv 规则-->
+        <!-- id名 access+组ID -->
+        <!-- name名 权限名name名称 -->
+        <!-- model_id:id名 表名-->
+        <!-- group_id:id名 创建的组ID-->
+
+        <!-- 创建一个分类-->
+        <record id="base_module_credit_sj_guarantee" model="ir.module.category">
+            <field name="name">核保系统</field>
+            <field name="description">核保系统.</field>
+            <field name="sequence">0</field>
+        </record>
+
+        <!-- ***************************************************客户经理组与规则************************************* -->
+        <record id="group_credit_sj_guarantee_manager" model="res.groups">
+            <field name="name">客户经理</field>
+            <field name="category_id" ref="base_module_credit_sj_guarantee"/>
+            <field name="comment">Manager</field>
+        </record>
+
+        <!--***************************************************核保专员与规则************************************* -->
+        <record id="group_credit_sj_guarantee_officer" model="res.groups">
+            <field name="name">核保专员</field>
+            <field name="category_id" ref="base_module_credit_sj_guarantee"/>
+            <field name="comment">Officer</field>
+        </record>
+
+        <!-- ***************************************************核保团队与规则************************************* -->
+        <record id="group_credit_sj_guarantee_team" model="res.groups">
+            <field name="name">核保团队</field>
+            <field name="category_id" ref="base_module_credit_sj_guarantee"/>
+            <field name="comment">Team</field>
+        </record>
+
+        <!--客户经理关联菜单-->
+        <record model="ir.ui.menu" id="menu_credit_sj_guarante">
+            <field eval="[(4, ref('group_credit_sj_guarantee_manager'))]" name="groups_id"/>
+        </record>
+        <record model="ir.ui.menu" id="menu_credit_sj_guarantee_manage">
+            <field eval="[(4, ref('group_credit_sj_guarantee_manager'))]" name="groups_id"/>
+        </record>
+        <record model="ir.ui.menu" id="menu_credit_sj_guarantee_application">
+            <field eval="[(4, ref('group_credit_sj_guarantee_manager'))]" name="groups_id"/>
+        </record>
+        <record model="ir.ui.menu" id="menu_credit_sj_guarantee_application_search">
+            <field eval="[(4, ref('group_credit_sj_guarantee_manager'))]" name="groups_id"/>
+        </record>
+
+        <!--核保专员关联菜单-->
+        <record model="ir.ui.menu" id="menu_credit_sj_guarante">
+            <field eval="[(4, ref('group_credit_sj_guarantee_officer'))]" name="groups_id"/>
+        </record>
+        <record model="ir.ui.menu" id="menu_credit_sj_guarantee_manage">
+            <field eval="[(4, ref('group_credit_sj_guarantee_officer'))]" name="groups_id"/>
+        </record>
+        <record model="ir.ui.menu" id="menu_credit_sj_guar_res_feedback">
+            <field eval="[(4, ref('group_credit_sj_guarantee_officer'))]" name="groups_id"/>
+        </record>
+
+        <!--核保团队关联菜单-->
+        <record model="ir.ui.menu" id="menu_credit_sj_guarante">
+            <field eval="[(4, ref('group_credit_sj_guarantee_team'))]" name="groups_id"/>
+        </record>
+        <record model="ir.ui.menu" id="menu_credit_sj_guarantee_manage">
+            <field eval="[(4, ref('group_credit_sj_guarantee_team'))]" name="groups_id"/>
+        </record>
+        <record model="ir.ui.menu" id="menu_credit_sj_guarantee_task_manage">
+            <field eval="[(4, ref('group_credit_sj_guarantee_team'))]" name="groups_id"/>
+        </record>
+        <record model="ir.ui.menu" id="menu_credit_sj_guarantee_application_return">
+            <field eval="[(4, ref('group_credit_sj_guarantee_team'))]" name="groups_id"/>
+        </record>
+
+        <!--客户经理规则-->
+        <record id="rule_guarantee_sj_request_manager" model="ir.rule">
+            <field name="name">客户经理</field>
+            <field model="ir.model" name="model_id" ref="model_credit_sj_guarantee_application"/>
+            <field name="domain_force">[('main_manager','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('group_credit_sj_guarantee_manager'))]"/>
+        </record>
+        <!--核保专员规则-->
+        <record id="rule_guarantee_sj_request_officer" model="ir.rule">
+            <field name="name">核保专员</field>
+            <field model="ir.model" name="model_id" ref="model_credit_sj_guarantee_application"/>
+            <field name="domain_force">[('guarantee_user','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('group_credit_sj_guarantee_officer'))]"/>
+        </record>
+        <record id="rule_guarantee_sj_route_officer" model="ir.rule">
+            <field name="name">核保专员</field>
+            <field model="ir.model" name="model_id" ref="credit_sj_guarantee_route.model_credit_sj_guarantee_route"/>
+            <field name="domain_force">[('check_staff','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('group_credit_sj_guarantee_officer'))]"/>
+        </record>
+    </data>
+</openerp>

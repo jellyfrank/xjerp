@@ -1,0 +1,21 @@
+.openerp .oe_web_test{
+    color:white;
+    background-color:black;
+    height:100%;
+}
+
+.openerp .oe_web_test h4{
+    margin:0;
+    font-size:400;
+}
+
+.openerp .oe_web_test.oe_web_test_started .oe_web_test_start button,
+.openerp .oe_web_test.oe_web_test_stopped .oe_web_test_stop button {
+    display:None
+}
+
+.oe_web_test{
+    color:white;
+    background-color:black;
+    height:100%;
+}
