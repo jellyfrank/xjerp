@@ -42,6 +42,6 @@ report_sxw.report_sxw(
     'stock.inventory',
     'addons/stock/report/stock_inventory_move.rml',
     parser=stock_inventory_move,
-    header='internal'
+    header=False
 )
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

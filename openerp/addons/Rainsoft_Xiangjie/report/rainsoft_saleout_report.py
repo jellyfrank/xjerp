@@ -45,6 +45,6 @@ class rainsoft_saleout_report(rml_parse.rml_parse):
 
 report_sxw.report_sxw('report.rainsoft.saleout', 'rainsoft.saleout',   \
                       'Rainsoft_Xiangjie/report/rainsoft_saleout.rml',  \
-                      parser=rainsoft_saleout_report,header=True)
+                      parser=rainsoft_saleout_report,header=False)
 
 
