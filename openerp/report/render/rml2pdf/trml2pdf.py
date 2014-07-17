@@ -643,16 +643,8 @@ class _rml_flowable(object):
                 if key in ('rml_except', 'rml_loop', 'rml_tag'):
                     del txt_n.attrib[key]
             if not n.tag == 'bullet':
-		print n.tag
                 if n.tag == 'pageNumber':
-                    txt_n.text = self.canvas and str(self.canvas.getPageNumber()) or ''
-                    print '**number**'
-                    print txt_n.text
-                #added by kevin
-                elif n.tag == "pageCount":
-		    #txt_n.text = str(self.canvas)
-		    print '**total**'
-		#end
+                    txt_n.text = self.canvas and str(self.canvas.getPageNumber()) or ''               
                 else:
                     txt_n.text = utils.xml2str(self._textual(n))
             txt_n.tail = n.tail and utils.xml2str(utils._process_text(self, n.tail.replace('\n',''))) or ''
