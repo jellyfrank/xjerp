@@ -33,6 +33,16 @@
 				</field>
 			</field>
 		</record>
+		<record id="rainsoft_sale_order_filter" model="ir.ui.view">
+				<field name="name">rainsoft_sale_order_filter_view</field>
+				<field name="model">sale.order</field>
+				<field name="inherit_id" ref="sale.view_sales_order_filter"/>
+				<field name="arch" type="xml">
+						<xpath expr="//filter[@string='Done']" position="after">
+								<filter string="not internal" domain="[('is_internal','=',0)]"/>
+						</xpath>
+				</field>
+		</record>
 		<record id="id_for_the_action" model="ir.actions.server">
 			<field name="name">Send Text Message</field>
 			<field name="type">ir.actions.server</field>

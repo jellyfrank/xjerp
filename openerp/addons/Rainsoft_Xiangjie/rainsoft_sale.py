@@ -40,51 +40,51 @@ class rainsoft_sale(osv.osv):
 			'item_count':fields.function(_get_items_count,string='Items  Count'),
 			'credit_limit':fields.function(_get_partner_credit_limit,string='Credit Limit'),
 			'credit':fields.function(_get_partner_credit,string='Credit'),
+			'is_internal':fields.related('partner_id','is_internal',type="boolean",string='is internal'),
 			
 		}
 	
 	
 	def import_file(self,cr,uid,ids,context=None):
-		for wiz in self.browse(cr,uid,ids):
-		    if not wiz.data:continue
-
-		    excel = xlrd.open_workbook(file_contents=base64.decodestring(wiz.data))
-		    sheets = excel.sheets()
-		    for sh in sheets:
-			if sh.name==u'营建' or sh.name==u'分公司':
-			    lines=[]
-			    for row in range(4,sh.nrows-5):
-				
-				if sh.cell(row,1).value and sh.cell(row,5).value:
-				    product_no = int(str(sh.cell(row,1).value).strip().split('.')[0])
-				    product_amount=sh.cell(row,5).value
-				    product_price =sh.cell(row,6).value
-				    product_method=sh.cell(row,12).value
-				    if product_method == u'订单':
-					product_method='make_to_order'
-				    else:
-					product_method='make_to_stock'
+			for wiz in self.browse(cr,uid,ids):
+					if not wiz.data:continue
+			excel = xlrd.open_workbook(file_contents=base64.decodestring(wiz.data))
+			sheets = excel.sheets()
+			sheet_names = self.pool.get('ir.config_parameter').get_param(cr,uid,"rainsoft.sms.sheet_name",context=context).split(';')
+			for sh in sheets:
+					if len([sh.name for s_name in sheet_names if sh.name==s_name]):
+							lines=[]
+							for row in range(4,sh.nrows-5):
+									if sh.cell(row,1).value and sh.cell(row,5).value:
+											product_no = int(str(sh.cell(row,1).value).strip().split('.')[0])
+											product_amount=sh.cell(row,5).value
+											product_price =sh.cell(row,6).value
+											product_method=sh.cell(row,12).value
+											if product_method == u'订单':
+													product_method='make_to_order'
+											else:
+													product_method='make_to_stock'
 				    
-				    products = self.pool.get('product.product').search(cr,uid,[('default_code','=',product_no)],context=context)
-				    _logger.info("importing product_no:"+str(product_no)+";products:"+str(products))
-				    if len(products)>0 and product_amount>0 and product_amount:
-					product = self.pool.get('product.product').browse(cr,uid,products[0],context=context)
-					line={
-						    'order_id':ids[0],
-						    'name':product.name,
-						    'product_id':product.id,
-						    'price_unit':product_price,
-						    'product_uom':product.uom_id.id,
-						    'product_uom_qty':product_amount,
-				'type':product_method,
-				'state':'draft',
-						    }
-					self.pool.get('sale.order.line').create(cr,uid,line,context)
-				    else:
-					_logger.info("product insert failed. No:"+str(product_no))
-					_logger.info("probably caused by 1.len(products):"+str(len(products))+",2.product_amount:"+str(product_amount))
-				else:
-				    _logger.info('row 1 and row 5 is invalid! Error Column 1:'+str(sh.cell(row,1).value)+";Error Column 2:"+str(sh.cell(row,5).value))
+											products = self.pool.get('product.product').search(cr,uid,[('default_code','=',product_no)],context=context)
+											_logger.info("importing product_no:"+str(product_no)+";products:"+str(products))
+											if len(products)>0 and product_amount>0 and product_amount:
+													product = self.pool.get('product.product').browse(cr,uid,products[0],context=context)
+													line={
+															'order_id':ids[0],
+															'name':product.name,
+															'product_id':product.id,
+															'price_unit':product_price,
+															'product_uom':product.uom_id.id,
+															'product_uom_qty':product_amount,
+												'type':product_method,
+												'state':'draft',
+															}
+													self.pool.get('sale.order.line').create(cr,uid,line,context)
+											else:
+													_logger.info("product insert failed. No:"+str(product_no))
+													_logger.info("probably caused by 1.len(products):"+str(len(products))+",2.product_amount:"+str(product_amount))
+									else:
+											_logger.info('row 1 and row 5 is invalid! Error Column 1:'+str(sh.cell(row,1).value)+";Error Column 2:"+str(sh.cell(row,5).value))
 				    
 	
 	def onchange_product_model(self,cr,uid,ids,order_line,product_model,context=None):
@@ -236,5 +236,6 @@ class rainsoft_sale_line(osv.osv):
         'categ_id': fields.related('product_id', 'categ_id', type='many2one', relation='product.category', string=u'分类',
                                    store=True),
         'categ_name': fields.function(_categ_name_fun, type='char', multi='cate', method=True, string=u'分类'),
+		'is_internal':fields.related('order_partner_id','is_internal',type="boolean",string="is internal"),
     }
 rainsoft_sale_line()

@@ -7,7 +7,7 @@ openerp.web_m2x_options = function (instance) {
         _t  = instance.web._t,
         _lt = instance.web._lt;
 
-    instance.web.form.FieldMany2One.include({
+    instance.web.form.Field.include({
 
         show_error_displayer: function () {
             if ((typeof this.options.m2o_dialog === 'undefined' && this.can_create) ||

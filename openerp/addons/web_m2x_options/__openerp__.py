@@ -36,7 +36,7 @@ Thanks to:
 	'web',
     ],
     "js": [
-        'static/src/js/form.js',
+#        'static/src/js/form.js',
     ],
     "author": "Tuxservices",
     "installable" : True,

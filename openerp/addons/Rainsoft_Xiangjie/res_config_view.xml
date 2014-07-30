@@ -60,6 +60,9 @@
 			      </div>
 			  </div>
 		    </group>
+			<group>
+					<field name="sheet_name"/>
+			</group>
                 </form>
             </field>
         </record>
