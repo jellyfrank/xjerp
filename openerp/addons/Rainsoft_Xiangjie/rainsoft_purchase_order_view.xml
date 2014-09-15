@@ -12,19 +12,21 @@
                 </button>
                 <field name="origin" position="after">
                     <field name="client"/>
+					<field name='pay_type'/>
                 </field>
             </field>
         </record>
-	<!--<record model="ir.ui.view" id="rainsoft_purchase_order_filter">
-	  <field name="name">rainsoft.purchase.order.filter</field>
-	  <field name="model">purchase.order</field>
-	  <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
-	  <field name="arch" type="xml">
-	    <xpath expr="//filter[@string='Expected Date']" position="after">
-	       <filter string='product' context="{'group_by':'product_id'}" />
-	    </xpath>
-	  </field>
-	</record>-->
+		<record model="ir.ui.view" id="rainsoft_purchase_order_tree">
+			<field name="name">rainsoft.purchase.order.form</field>
+			<field name="model">purchase.order</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="purchase.purchase_order_tree"/>
+			<field name="arch" type="xml">    
+					<field name="partner_id" position="after">
+							<!--<field name="client"/>-->
+					</field>
+			</field>
+		</record>
     </data>
 </openerp>
 

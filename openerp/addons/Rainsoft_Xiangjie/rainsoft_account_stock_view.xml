@@ -42,13 +42,14 @@
                 <form string='rainsoft account stock line' version="7.0">
                     <field name="product_id"/>
                     <field name="init_remainder"/>
-		    <feild name="init_money"/>
+					<feild name="init_money"/>
                     <field name="current_in_count" />
                     <field name="current_in_money" />
                     <field name="current_out_count"/>
                     <field name="current_out_money"/>
                     <field name="end_remainder" />
                     <field name="end_money" />
+					<field name="average_price"/>
                 </form>
             </field>
         </record>
@@ -62,19 +63,20 @@
 		    <!--<field name="period" />
 		    <field name="location"/>-->
                     <field name="product_id"/>
-		    <field name="category"/>
+					<field name="category"/>
                     <field name="init_remainder" sum="Total Init Remainder"/>
-		    <field name="init_money" sum="Total Init Money"/>
-		    <field name="inventory_in_count" sum="Total Inventory In Count"/>
-		    <field name="inventory_in_money" sum="Total Inventory In Money"/>
+					<field name="init_money" sum="Total Init Money"/>
+					<field name="inventory_in_count" sum="Total Inventory In Count"/>
+					<field name="inventory_in_money" sum="Total Inventory In Money"/>
                     <field name="current_in_count" sum="Total Current In Amount"/>
                     <field name="current_in_money" sum="Total Current In Money"/>
-		    <field name="inventory_out_count" sum="Total Inventory Out Count"/>
-		    <field name="inventory_out_money" sum="Total Inventory Out Money"/>
+					<field name="inventory_out_count" sum="Total Inventory Out Count"/>
+					<field name="inventory_out_money" sum="Total Inventory Out Money"/>
                     <field name="current_out_count" sum="Total Current Out Amount"/>
                     <field name="current_out_money" sum="Total Current Out Money"/>
                     <field name="end_remainder" sum="Total Remainder"/>
                     <field name="end_money" sum="Total Money"/>
+					<field name="average_price"/>
                 </tree>
             </field>
         </record>
@@ -207,13 +209,18 @@
 		    <field name="product_id"/>
                     <field name="category"/>
                     <field name="init_remainder" sum="Total Init Remainder"/>
-		    <field name="init_money" sum="Total Init Money"/>
+					<field name="init_money" sum="Total Init Money"/>
+					<field name="inventory_in_count" sum="Total Inventory In"/>
+					<field name="inventory_in_money" sum="Total Inventory In Money"/>
                     <field name="current_in_count" sum="Total Current In Amount"/>
                     <field name="current_in_money" sum="Total Current In Money"/>
+					<field name="inventory_out_count" sum="Total Inventory Out "/>
+					<field name="inventory_out_money" sum="Total Inventory Out Money "/>
                     <field name="current_out_count" sum="Total Current Out Amount"/>
                     <field name="current_out_money" sum="Total Current Out Money"/>
                     <field name="end_remainder" sum="Total Remainder"/>
                     <field name="end_money" sum="Total Money"/>
+					<field name="average_price"/>
 	    </form>
 	  </field>
 	</record>
@@ -227,13 +234,18 @@
 		    <field name="product_id"/>
             <field name="category"/>
                     <field name="init_remainder" sum="Total Init Remainder" />
-		    <field name="init_money" sum="Total Init Money"/>
+					<field name="init_money" sum="Total Init Money"/>
+					<field name="inventory_in_count" sum="Total Inventory In"/>
+					<field name="inventory_in_money" sum="Total Inventory In Money"/>
                     <field name="current_in_count" sum="Total Current In Amount"/>
                     <field name="current_in_money" sum="Total Current In Money"/>
+					<field name="inventory_out_count" sum="Total Inventory Out "/>
+					<field name="inventory_out_money" sum="Total Inventory Out Money "/>
                     <field name="current_out_count" sum="Total Current Out Amount"/>
                     <field name="current_out_money" sum="Total Current Out Money"/>
                     <field name="end_remainder" sum="Total Remainder"/>
                     <field name="end_money" sum="Total Money"/>
+					<field name="average_price"/>
 	    </tree>
 	  </field>
 	</record>

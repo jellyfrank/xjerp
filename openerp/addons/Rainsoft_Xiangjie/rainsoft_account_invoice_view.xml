@@ -23,5 +23,48 @@
 		</field>
 	    </field>
 	</record>
+
+	<record model="ir.ui.view" id="rainsoft_account_invoice_tree_view">
+			<field name="name">rainsoft.account.invoice.tree.view</field>
+			<field name="model">account.invoice.line</field>
+			<field name="inherit_id" ref="account.view_invoice_line_tree" />
+			<field name="arch" type="xml">
+					<field name="name" position="before">
+							<field name="partner_id"/>
+							<field name="date"/>
+							<field name="origin"/>
+					</field>
+					<field name="price_subtotal" position="after">
+							<field name="cost_amount" sum="Cost Amount"/>
+							<field name="state"/>
+					</field>
+					<field name="price_subtotal" position="attributes">
+							<attribute name="sum">Price Subtotal</attribute>
+					</field>
+					<field name="price_unit" position="after">
+							<field name="average_price"/>
+					</field>
+			</field>
+	</record>
+	<record model="ir.ui.view" id="rainsoft_account_invoice_search_view">
+			<field name="name">Rainsoft Account Serach View</field>
+			<field name="model">account.invoice.line</field>
+			<field name="arch" type="xml">
+					<search string="Rainsoft Account Search">
+							
+							<group expand="0" string="Group By...">
+									<filter string="Source" context="{'group_by':'origin'}"/>
+							</group>
+					</search>
+			</field>
+	</record>
+
+	<record model="ir.actions.act_window" id="actions_rainsoft_invoice_form">
+			<field name="name">Invoice Detail</field>
+			<field name="res_model">account.invoice.line</field>
+			<field name="view_mode">tree</field>
+	</record>
+
+	<menuitem id="rainsoft_account_invoice_form_item" name="invoice detail" parent="account_payment.menu_main_payment" action="actions_rainsoft_invoice_form"/>
     </data>
 </openerp>

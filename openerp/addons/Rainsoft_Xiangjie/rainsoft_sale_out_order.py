@@ -55,6 +55,7 @@ class rainsoft_sale_out_order(osv.osv):
         "name":fields.char(string='name',required=True),
         "partner_id":fields.many2one('res.partner','Partner',requried=True),
         "sale_order_id":fields.many2one('sale.order','Sale Order',required=True),
+        "date":fields.related('sale_order_id','date_order',type='date',relation="sale.order",string="Date"),
         "sale_order_line":fields.one2many('rainsoft.saleout.line','order_id','Order Lines'),
         "state":fields.selection(
 	  [('new','New'),

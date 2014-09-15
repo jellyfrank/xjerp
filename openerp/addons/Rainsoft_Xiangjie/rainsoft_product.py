@@ -75,3 +75,33 @@ class rainsoft_product(osv.osv):
 		
 
 rainsoft_product()
+
+
+class rainsoft_catetory(osv.Model):
+		_inherit="product.category"
+
+		def name_search(self,cr,user,name='',args=None,operator="ilike",context=None,limit=100):
+				res = []
+				#import pudb
+				#pudb.set_trace()
+				limit = limit or 100
+				if name:
+						res_ids = self.search(cr,user,[('name','=',name)],limit=limit,context=context)
+						new_limit = limit - len(res_ids)
+						if new_limit:
+								ids = self.search(cr,user,[('name',operator,name)],limit=new_limit,context=context)
+								res_ids = list(set(res_ids+ids))
+						new_limit = limit - len(res_ids)
+						if new_limit:
+								self.get_children_category(cr,user,res_ids,res,limit=new_limit,context=context)
+								res = list(set(res))
+								return self.name_get(cr,user,res,context=context)
+				return super(rainsoft_catetory,self).name_search(cr,user,name=name,args=args,operator=operator,context=context,limit=limit)
+
+		def get_children_category(self,cr,uid,ids,res,limit=100,context=None):
+				for x_id in ids:
+						children_ids =  self.search(cr,uid,[('parent_id','=',x_id)],limit=limit,context=context)
+						new_limit = limit - len(children_ids)
+						if new_limit:
+								self.get_children_category(cr,uid,children_ids,res,new_limit,context=context)
+						res.append(x_id)

@@ -7,8 +7,8 @@
             <field name="arch" type="xml">
                 <form string="Sale and Delivery Order" version="7.0">
 		  <header>
-		    <button name="saleout_invoice" string="Create Invoice" states="new" confirm="确认创建发票吗，没有发货的产品将不能继续发货。"/>
-		    <!--<button name="action_view_invoice" type="object" string="View Invoice" states="invocie,done"/>
+				  <!--<button name="saleout_invoice" string="Create Invoice" states="new" confirm="确认创建发票吗，没有发货的产品将不能继续发货。"/>
+		    <button name="action_view_invoice" type="object" string="View Invoice" states="invocie,done"/>
 		    <button name="saleout_done" string="finish" states="invocie" confirm="确认结束订单吗，没有发货的产品将不能继续发货"/>-->
 		    <field name="state" widget="statusbar" statusbar_visible="new,invocie,done" statusbar_colors='{"new":"red","done":"blue"}'/>
 		  </header>
@@ -26,6 +26,7 @@
                                 <field name="sale_order_id"/>
 				<!--<field name="amount_order_money"/>
 				<field name="amount_send_money"/>-->
+								<field name="date"/>
                             </group>
                         </group>
                     <notebook>
@@ -45,6 +46,7 @@
                 <tree string="Sale and Delivery Order">
                     <field name="name"/>
                     <field name="partner_id"/>
+					<field name="date"/>
 		    <field name="state"/>
                 </tree>
             </field>

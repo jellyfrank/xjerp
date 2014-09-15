@@ -15,7 +15,10 @@ class rainsoft_payment(osv.osv):
       st1 = partner_record.street2 or ''
       zip = partner_record.zip or ''
       city = partner_record.city or  ''
-      zip_city = zip + ' ' + city.name
+      if city:
+          zip_city = zip + ' ' + city.name
+      else:
+          zip_city = zip + ' ' +city
       cntry = partner_record.country_id and partner_record.country_id.name or ''
       return partner_record.name + "\n" + st + " " + st1 + "\n" + zip_city + "\n" +cntry
       

@@ -26,7 +26,7 @@ from datetime import datetime
 from openerp.tools.translate import _
 import openerp.addons.decimal_precision as dp
 
-class rainsoft_account_stock(osv.osv):
+class rainsoft_account_stock(osv.TransientModel):
     _name='rainsoft.account.stock'
 
     _columns={
@@ -92,6 +92,8 @@ rainsoft_account_stock()
 
 class rainsoft_account_stock_line(osv.osv):
     _name="rainsoft.account.stock.line"
+
+    global result
       
     def _get_locations(self,cr,uid,ids,name,args,location,context=None):
 	res = context['res']
@@ -122,8 +124,8 @@ class rainsoft_account_stock_line(osv.osv):
 	    
 	    date_start = context['date_start']
 	    date_stop = context['date_stop']
-	    periods = self.pool.get('account.period').search(cr,uid,[('special','=',False),('state','=','done')],context=context)
-	    last_period_id = periods and max(periods)
+	    periods = self.pool.get('account.period').search(cr,uid,[('special','=',True),('state','=','done')],context=context)
+	    last_period_id = max(periods)
 	    #last_period = self.pool.get('account.period').browse(cr,uid,last_period_id,context=context)
 	    
 	    lines = self.browse(cr,uid,ids)
@@ -148,11 +150,12 @@ class rainsoft_account_stock_line(osv.osv):
 		carr_ids = self.pool.get('rainsoft.account.carryover').search(cr,uid,[('period','=',last_period_id)],context=context)
 		
 		if len(carr_ids)>0:
-		    carryover = self.pool.get('rainsoft.account.carryover').browse(cr,uid,carr_ids[0],context=context)
-		    carryover_line_id = self.pool.get('rainsoft.account.carryover.line').search(cr,uid,[('carryover_id','=',carryover.carry_over_line[0].carryover_id.id),('product_id','=',line.product_id.id)],context=context)
-		    if len(carryover_line_id)>0:
-		      res[line.id]['init_remainder'] = self.pool.get('rainsoft.account.carryover.line').browse(cr,uid,carryover_line_id[0],context=context).end_remainder
-		      res[line.id]['init_money'] = self.pool.get('rainsoft.account.carryover.line').browse(cr,uid,carryover_line_id[0],context=context).end_money
+		#    carryover = self.pool.get('rainsoft.account.carryover').browse(cr,uid,carr_ids[0],context=context)
+		    carryover_line_id = self.pool.get('rainsoft.account.carryover.line').search(cr,uid,[('carryover_id','=',carr_ids[0]),('product_id','=',line.product_id.id)],context=context)
+                    if len(carryover_line_id)>0:
+                        carry_over = self.pool.get('rainsoft.account.carryover.line').browse(cr,uid,carryover_line_id[0],context=context)
+                        res[line.id]['init_remainder'] = carry_over.end_remainder
+                        res[line.id]['init_money'] = carry_over.end_money
 		      
 		#inventory in stock
 		inventory_moves = self.pool.get('stock.move').search(cr,uid,[('location_id','=',inventory_loc),('location_dest_id','in',locs),('product_id','=',line.product_id.id),('state','=','done'),('date','>=',date_start),('date','<',date_stop)],context=context)
@@ -205,8 +208,6 @@ class rainsoft_account_stock_line(osv.osv):
 		        res[line.id]['current_out_count'] +=stock_out_line.product_qty
 		        
 		
-		
-		
 		#the direct goods from supplier to customer
 		direct_moves = self.pool.get('stock.move').search(cr,uid,[('location_id','=',context['direct_origin']),('location_dest_id','=',context['direct_dest']),('product_id','=',line.product_id.id),('state','=','done'),('date','>=',date_start),('date','<',date_stop)],context=context)
 	    
@@ -232,6 +233,7 @@ class rainsoft_account_stock_line(osv.osv):
 		#average price
 		if (res[line.id]["current_in_count"]+res[line.id]['init_remainder']) !=0:		  
 		    average_price = (res[line.id]['init_money']+res[line.id]['current_in_money'])/(res[line.id]["current_in_count"]+res[line.id]['init_remainder'])
+                res[line.id]['average_price']=average_price
 		
 		res[line.id]['current_out_money'] = average_price*res[line.id]['current_out_count']
 		res[line.id]['inventory_out_money']=average_price*res[line.id]['inventory_out_count']
@@ -239,6 +241,7 @@ class rainsoft_account_stock_line(osv.osv):
 			    
 		res[line.id]['end_remainder'] =res[line.id]['init_remainder']+ res[line.id]['current_in_count']-res[line.id]['current_out_count']+res[line.id]['inventory_in_count']-res[line.id]['inventory_out_count']
 		res[line.id]['end_money'] =res[line.id]['init_money']+res[line.id]['current_in_money']-res[line.id]['current_out_money']+res[line.id]['inventory_in_money']-res[line.id]['inventory_out_money']
+        self.result = res
     	return res
     
     _columns={
@@ -265,6 +268,7 @@ class rainsoft_account_stock_line(osv.osv):
         'period':fields.many2one('account.period','period'),
         'location':fields.many2one('stock.location','location'),
         'detail':fields.one2many('rainsoft.account.stock.detail','stock_id',string="detail"),
+        'average_price':fields.function(_get_current,multi='sums',string="Average Price",digits_compute=dp.get_precision('Account')),
 
     }
     
@@ -289,7 +293,8 @@ class rainsoft_account_stock_line(osv.osv):
 	if len(carrys)>0:
 	  raise osv.except_osv(_('Error!'),_('Carry Over Already Exists!'))
 	
-	res = self._get_current(cr,uid,ids,'','',context=context)
+	#res = self._get_current(cr,uid,ids,'','',context=context)
+        res = self.result
 	
 	#create header
 	line_id = self.pool.get('rainsoft.account.carryover').create(cr,uid,{'period':stock.period_id.id,'carry_date':datetime.now(),'location':location},context=context)
@@ -300,12 +305,17 @@ class rainsoft_account_stock_line(osv.osv):
 	      'product_id':line.product_id.id,
 	      'init_remainder':res[line.id]["init_remainder"],
 	      'init_money':res[line.id]["init_money"],
+              'inventory_in_count':res[line.id]['inventory_in_count'],
+              'inventory_in_money':res[line.id]['inventory_in_money'],
 	      'current_in_count':res[line.id]["current_in_count"],
 	      'current_in_money':res[line.id]["current_in_money"],
+              'inventory_out_count':res[line.id]["inventory_in_money"],
+              'inventory_out_money':res[line.id]["inventory_out_money"],
 	      'current_out_count':res[line.id]["current_out_count"],
 	      'current_out_money':res[line.id]["current_out_money"],
 	      'end_remainder':res[line.id]["end_remainder"],
 	      "end_money":res[line.id]["end_money"],
+              'average_price':res[line.id]['average_price'],
 	      }
 	    self.pool.get('rainsoft.account.carryover.line').create(cr,uid,val,context=context)
 	    
@@ -357,6 +367,8 @@ class rainsoft_account_carry_over_line(osv.osv):
       'inventory_out_money':fields.float("inventory_out_money",digits_compute=dp.get_precision('Account')),
       'end_remainder':fields.float("end_remainder",digits_compute=dp.get_precision('Account')),
       'end_money':fields.float("end_money",digits_compute=dp.get_precision('Account')),
+      'average_price':fields.float('average_price',digits_compute=dp.get_precision('Account')),
+      'period_id':fields.related('carryover_id','period',type='many2one',relation='account.period',string="period"),
     }
   
 rainsoft_account_carry_over_line()

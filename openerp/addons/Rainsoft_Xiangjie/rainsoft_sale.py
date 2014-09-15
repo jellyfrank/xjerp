@@ -41,7 +41,8 @@ class rainsoft_sale(osv.osv):
 			'credit_limit':fields.function(_get_partner_credit_limit,string='Credit Limit'),
 			'credit':fields.function(_get_partner_credit,string='Credit'),
 			'is_internal':fields.related('partner_id','is_internal',type="boolean",string='is internal'),
-			
+                        'invoice_state'	:fields.related('invoice_ids','state',type="char",string='Invoice State',relation="account.invoice"),
+                        'picking_state':fields.related('picking_ids','state',type="char",string="Picking State",relation="stock.picking.out"),
 		}
 	
 	

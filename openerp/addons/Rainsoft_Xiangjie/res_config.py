@@ -10,7 +10,7 @@ class rainsoft_sms_config(osv.osv):
         'user_id':fields.char('User ID',Help='user id that service provider gives to you'),
         'send_address':fields.char('Interface Address',Help='The address that your sms send to'),
         'user_name':fields.char('Account',Help='The username that can pass interface'),
-        'pass_word':fields.char('Password',),
+        'pass_word':fields.char('Password',password=True),
         'appendix':fields.char('End Text',Help="The text that append to every message's end"),
         'model_price':fields.boolean("Allow Import Price From Excel File"),
 		'sheet_name':fields.text('Sheet Names'),

@@ -23,6 +23,8 @@ class rainsoft_sms(osv.osv):
 		mobile = self.pool.get(context.get('active_model')).browse(cr,uid,context.get('active_id'),context=context).partner_id.mobile
 	    if context.get('active_model')=="purchase.order":
 		mobile = self.pool.get(context.get('active_model')).browse(cr,uid,context.get('active_id'),context=context).client.mobile
+            if context.get('active_model')=='stock.picking.out':
+                mobile = self.pool.get(context.get('active_model')).browse(cr,uid,context.get('active_id')).partner_id.mobile
 	return mobile
 	  
     def _get_partner(self,cr,uid,context=None):
@@ -33,6 +35,9 @@ class rainsoft_sms(osv.osv):
 	if context.get('active_model')=='purchase.order':
 	    active_model =context.get('active_model')
 	    client_id = self.pool.get(active_model).browse(cr,uid,context.get('active_id'),context=context).client.id
+        if context.get('active_model')=='stock.picking.out':
+	    active_model =context.get('active_model')
+            client_id = self.pool.get(active_model).browse(cr,uid,context.get('active_id'),context=context).partner_id.id
 	return client_id
     
     _defaults={
@@ -48,8 +53,10 @@ class rainsoft_sms(osv.osv):
 	    if context.get('active_model')=='purchase.order':
 		client = self.pool.get(context.get('active_model')).browse(cr,uid,context.get('active_id')).client
 		partner_name = client.name
+	    if context.get('active_model')=='stock.picking.out':
+		partner_name = self.pool.get(context.get('active_model')).browse(cr,uid,context.get('active_id')).partner_id.name
 	    template = self.pool.get('rainsoft.sms.template').browse(cr,uid,template_id,context=context)
-	    content=template.content.replace('{shop}',partner_name)
+	    content=template.content.replace('{partner}',partner_name)
 	    val={
 	      'content':content
 	      }
@@ -69,42 +76,6 @@ class rainsoft_sms(osv.osv):
 	  }
 	return self.pool.get('rainsoft.sms').write(cr,uid,message.id,val,context=context)
      
-    def fields_view_get(self,cr,uid,view_id=None,view_type='form',context={},tool_bar=False):
-	print 'b'
-	result = super(rainsoft_sms, self).fields_view_get(cr, uid, view_id, view_type, context=context, toolbar=tool_bar)
-	###your modification in the view
-	###result['fields'] will give you the fields. modify it if needed
-	xml = """
-	 <form string="Sms" version="7.0">
-                    <sheet>
-			  <group>
-			    <label for="partner_id" string="Send To" />		  
-			    <h1><field name="partner_id" readonly='1' string="Partner"/></h1>
-			  </group>
-			  <group>
-                            <field name="mobile" string="mobile"  context="{'mobile':active_id}"/>			    
-                            <field name="content" string="content"/>
-			    <field name="template_id" string="template" on_change="on_change_template(template_id,context)" widget="selection" context="{'mobile':active_id}"/>
-			  </group>
-                        <!--<group>
-			  <div>
-			      <field name="status" string="Status" class="oe_view_only"/>
-			      <field name="message" string="Message" class="oe_view_only"/>
-			  </div>
-			  </group>-->
-                        <group>
-                            <button string="Send" name="send_sms" type="object" class="oe_view_only"/>
-                        </group>
-                    </sheet>
-                    </form>
-	"""
-	if view_type=="form":
-	  result['arch']=xml
-	###result['arch'] will give you the xml architecture. modify it if needed
-	return result
-    def read(self,cr,uid,ids,fields=None,context=None):
-	print 'a'
-	return super(rainsoft_sms,self).read(cr,uid,ids,fields=fields,context=context)
         
 rainsoft_sms()
 

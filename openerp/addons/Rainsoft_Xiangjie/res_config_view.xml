@@ -42,7 +42,7 @@
                             </div>
                             <div>
                                 <label for="pass_word" string="Password"/>
-                                <field name="pass_word"/>
+                                <field name="pass_word" password="1"/>
                             </div>
                             <div>
                                 <label for="appendix" string="Appendix"/>
@@ -59,10 +59,13 @@
 				  <label for="model_price" string="allow import price from excel file"/> 
 			      </div>
 			  </div>
+			  <label for="sheet_name" string="Sheet Names" />
+			  <div>
+					  <div>
+							  <field name="sheet_name"/>
+					  </div>
+			  </div>
 		    </group>
-			<group>
-					<field name="sheet_name"/>
-			</group>
                 </form>
             </field>
         </record>

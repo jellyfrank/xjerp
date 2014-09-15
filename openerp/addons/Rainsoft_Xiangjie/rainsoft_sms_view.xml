@@ -9,10 +9,10 @@
                     <sheet>
 			  <group>
 			    <label for="partner_id" string="Send To" />		  
-			    <h1><field name="partner_id" readonly='1' string="Partner"/></h1>
+			    <h1><field name="partner_id" readonly="1" string="Partner"/></h1>
 			  </group>
 			  <group>
-                            <field name="mobile" string="mobile"  context="{'mobile':active_id}"/>			    
+                            <field name="mobile" string="mobile" context="{'mobile':active_id}"/>			    
                             <field name="content" string="content"/>
 			    <field name="template_id" string="template" on_change="on_change_template(template_id,context)" widget="selection" context="{'mobile':active_id}"/>
 			  </group>
