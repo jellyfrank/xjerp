@@ -1,2 +1,2 @@
 #-*- coding:utf-8
-import rainsoft_sale_product
+import rainsoft_sale_product,rainsoft_vouchers,rainsoft_update_price,rainsoft_template_journal,rainsoft_product_disable,rainsoft_product_handler,rainsoft_login_stop,rainsoft_product_category_update,rainsoft_partner_update_credit

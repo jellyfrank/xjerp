@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<openerp>
+		<data>
+				<record model="ir.ui.view" id="rainsoft_login_stop_view">
+						<field name="name">Login Stop</field>
+						<field name="model">rainsoft.login.stop</field>
+						<field name="type">form</field>
+						<field name="arch" type="xml">
+								<form string='Login Stop' version='7.0'>
+										<separator colspan='4' string='Are you sure to stop the selected users login ?'/>
+										<group>
+												<field name='active'/>
+										</group>
+										<footer>
+												<button name="btn_stop" string="Fine,change them." type="object" class="oe_highlight" context="{'active':active}"/>
+												or
+												<button string="cancel" class="oe_link" special="cancel"/>
+										</footer>
+								</form>
+						</field>
+				</record>
+
+				<record model="ir.actions.act_window" id="action_rainsoft_login_stop">
+						<field name="name">Login Stop</field>
+						<field name="res_model">rainsoft.login.stop</field>
+						<field name="view_mode">form</field>
+						<field name="view_type">form</field>
+						<field name="view_id" ref="rainsoft_login_stop_view"/>
+						<field name="target">new</field>
+						<field name="multi">True</field>
+				</record>
+
+				<record model="ir.values" id="values_login_stop">
+						<field name="model_id" ref="base.model_res_users"/>
+						<field name="name">Login Stop</field>
+						<field name="key2">client_action_multi</field>
+						<field name="value" eval="'ir.actions.act_window,'+str(ref('action_rainsoft_login_stop'))"/>
+						<field name="key">action</field>
+						<field name="model">res.users</field>
+				</record>
+		</data>
+</openerp>

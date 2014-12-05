@@ -18,6 +18,11 @@
 						<button name='import_file' string='Import' type='object' class='oe_edit_only' states="draft" />
 					</group>
 				  </group>
+				  <group>
+					<group>
+						<field name='product_model' string='Sale Template' on_change="onchange_product_model(order_line,product_model)"/>
+					</group>					      
+				  </group>
 				</xpath>
 				<field name="partner_id" position="attributes">
 				  <attribute name="options">{"always_reload": True,"limit": 10,"create": False,"create_edit": false}</attribute>
@@ -31,6 +36,15 @@
 				    <field name='credit_limit'/>
 				    <field name='credit'/>
 				</field>
+				<xpath expr="//tree[@string='Sales Order Lines']/field[@name='price_subtotal']" position="after">
+						<field name="comment"/>
+				</xpath>
+				<xpath expr="//page[@string='Order Lines']/field/form/group/group/field[@name='product_id']" position="attributes">
+						<attribute name="options">{'create':false,'create_edit':false}</attribute>
+			    </xpath>
+				<xpath expr="//page[@string='Order Lines']/field/form/group/group/field[@name='price_unit']" position="attributes">
+						<attribute name="readonly">1</attribute>
+				</xpath>
 			</field>
 		</record>
 		<record id="rainsoft_sale_order_filter" model="ir.ui.view">
@@ -51,14 +65,15 @@
 			<field name="code">self.send_sms(cr,uid,context.get('active_id'),context=context)</field>
 		</record>
 		
-		<record id="rainsoft_sale_order_line_form" model="ir.ui.view">
-			<field name="name">rainsoft.sale.order.line.form</field>
-			<field name="model">sale.order.line</field>
-			<field name="inherit_id" ref="sale.view_order_line_form2" />
+		<record id="rainsoft_sale_order_form2" model="ir.ui.view">
+			<field name="name">rainsoft.sale.order.form</field>
+			<field name="model">sale.order</field>
+			<field name="inherit_id" ref="rainsoft_order_form" />
+			<field name="groups_id" eval="[(6,0,[93])]"/>
 			<field name="arch" type="xml">
-			    <field name="product_id" position="attributes">
-				<attribute name="options">{'create':false,'create_edit':false}</attribute>
-			    </field>
+				<xpath expr="//page[@string='Order Lines']/field/form/group/group/field[@name='price_unit']" position="attributes">
+						<attribute name="readonly">0</attribute>
+				</xpath>
 			</field>
 		</record>
 		
@@ -78,7 +93,7 @@
 		    <field name="inherit_id" ref="sale.view_order_line_tree"/>
 		    <field name="arch" type="xml">			    
 			    <field name="order_id" position="before">
-				<field name="date"/>
+						<field name="date"/>
 			    </field>
 		    </field>
 		</record>

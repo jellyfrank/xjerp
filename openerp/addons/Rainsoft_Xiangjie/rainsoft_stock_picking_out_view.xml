@@ -9,8 +9,48 @@
                 <button name="button_cancel" position="after">
                     <button name="send_sms" string="Send Text Message" type="object" states="done" groups="base.group_user"/>
                 </button> 
+				 <button name="draft_force_assign" position='attributes'>
+						 <attribute name='groups'>stock.group_stock_user</attribute>
+				 </button>
+				 <button name="draft_validate" position="attributes">'
+						 <attribute name="groups">stock.group_stock_user</attribute>
+				 </button>
+				 <button name="action_assign" position="attributes">'
+						 <attribute name="groups">stock.group_stock_user</attribute>
+				 </button>
+				 <button name="force_assign" position="attributes">'
+						 <attribute name="groups">stock.group_stock_user</attribute>
+				 </button>
+				 <button name="326" position="attributes">'
+						 <attribute name="groups">stock.group_stock_user</attribute>
+				 </button>
+				 <button name="332" position="attributes">'
+						 <attribute name="groups">stock.group_stock_user</attribute>
+				 </button>
+				 <button name="button_cancel" position="attributes">'
+						 <attribute name="groups">stock.group_stock_user</attribute>
+				 </button>
+				 <button name="action_process" position="attributes">'
+						 <attribute name="groups">stock.group_stock_user</attribute>
+				 </button>
+				 <xpath expr="//page[@string='Products']/field[@name='note']" position="after">
+						 <label for="s_note" string="销售备注" />
+						 <field name="s_note"/>
+				 </xpath>
             </field>
         </record>
+
+        <record model="ir.ui.view" id="rainsoft_stock_picking_out">
+            <field name="name">rainsoft.stock.picking.out.form</field>
+            <field name="model">stock.picking.out</field>
+            <field name="inherit_id" ref="stock.view_picking_out_tree"/>
+            <field name="arch" type="xml">
+				 	<field name="state" position="after">
+							<!--		<field name="deliver_state" string="运输状态"/>
+							<field name="out_type"/>-->
+					</field>
+			</field>
+		</record>
 	
     </data>
 </openerp>

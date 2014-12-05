@@ -40,5 +40,12 @@
                 <field name='city'/>
             </field>
         </record>
+
+		<record model="ir.actions.act_window" id='rainsoft_action_city'>
+				<field name="name">rainsoft action city</field>
+				<field name="res_model">rainsoft.city</field>
+				<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem id="menu_rainsoft_city" name="city" action="rainsoft_action_city" parent="base.menu_localisation"/>
     </data>
 </openerp>

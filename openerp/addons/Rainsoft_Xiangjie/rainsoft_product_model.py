@@ -16,8 +16,7 @@ class rainsoft_product_model(osv.osv):
 	def create(self,cr,uid,values,context=None):
 	    if values.has_key('model_id'):
 		  if len(values['model_id'])>0:
-		      pids = [x[2]["product_id"] for x in values['model_id'] if x[2]] 
-		      print pids
+		      pids = [x[2]["product_id"] for x in values['model_id'] if x[2] and x[2].has_key('product_id')] 
 		      res = list(set([ p for p in pids if pids.count(p)>1]))
 		      if len(res) !=0:
 			    raise osv.except_osv(_('warning!'),_('products can not be repetitive!'))
@@ -31,12 +30,11 @@ class rainsoft_product_model(osv.osv):
 	    if values.has_key('model_id'):
 		  if len(values['model_id'])>0:
 		      for product in values['model_id']:
-			  if product[2]:
-			    pids = [x[2]["product_id"] for x in values['model_id'] if x[2]] 
-			    print pids
-			    res = list(set([ p for p in pids if pids.count(p)>1]))
-			    if len(res) !=0:
-				  raise osv.except_osv(_('warning!'),_('products can not be repetitive!'))
+					  if product[2]:
+							  pids = [x[2]["product_id"] for x in values['model_id'] if x[2] and x[2].has_key('product_id')] 
+							  res = list(set([ p for p in pids if pids.count(p)>1]))
+							  if len(res) !=0:
+									  raise osv.except_osv(_('warning!'),_('products can not be repetitive!'))
 		  else:
 		      raise osv.except_osv(_('Warning!'),_('product model can not be empty!'))
 	    return super(rainsoft_product_model,self).write(cr,uid,ids,values,context=context)
@@ -48,7 +46,9 @@ class rainsoft_myproduct(osv.osv):
 	_columns={
 			"myproduct_id":fields.many2one('rainsoft.product.model','id'),
 			"product_id":fields.many2one('product.product','products'),
-            "amount":fields.integer('amount'),
+                        "amount":fields.integer('amount'),
+                        "unit_price":fields.float('Unit Price'),
+			"comment":fields.char('comment'),
 			}
 
 

@@ -138,7 +138,7 @@ class rainsoft_account_stock_line(osv.osv):
 		    'inventory_in_count':0.0,
 		    'inventory_in_money':0.0,
 		    'inventory_out_count':0.0,
-		    'inventory_out_count':0.0,
+		    'inventory_out_money':0.0,
 		    'current_out_count':0.0,
 		    'current_out_money':0.0,
 		    'end_remainder':0.0,
@@ -147,7 +147,7 @@ class rainsoft_account_stock_line(osv.osv):
 		average_price=0.0
 		
 		#init remainder (from last account period)
-		carr_ids = self.pool.get('rainsoft.account.carryover').search(cr,uid,[('period','=',last_period_id)],context=context)
+		carr_ids = self.pool.get('rainsoft.account.carryover').search(cr,uid,[('period','=',last_period_id),('location','=',location)],context=context)
 		
 		if len(carr_ids)>0:
 		#    carryover = self.pool.get('rainsoft.account.carryover').browse(cr,uid,carr_ids[0],context=context)
@@ -251,19 +251,21 @@ class rainsoft_account_stock_line(osv.osv):
         'init_money':fields.function(_get_current,multi="all",string="Init_Money",method=True,digits_compute=dp.get_precision('Account')),
         'current_in_count':fields.function(_get_current,multi='all',string='Current_In_Count',
 	 method=True,digits_compute=dp.get_precision('Account')),
-        'current_in_money':fields.function(_get_current,multi='sums',string='current_in_money',digits_compute=dp.get_precision('Account')
-	),	'inventory_in_count':fields.function(_get_current,multi='sums',string='inventory_in_count',digits_compute=dp.get_precision('Account')),
-	'inventory_in_money':fields.function(_get_current,multi='sums',string='inventory_in_money',digits_compute=dp.get_precision('Account')),
-        'current_out_count':fields.function(_get_current,multi='sums',string='current_out',digits_compute=dp.get_precision('Account')
+        'current_in_money':fields.function(_get_current,multi='all',string='current_in_money',digits_compute=dp.get_precision('Account')
+	),	
+        'inventory_in_count':fields.function(_get_current,multi='all',string='inventory_in_count',digits_compute=dp.get_precision('Account')),
+	'inventory_in_money':fields.function(_get_current,multi='all',string='inventory_in_money',digits_compute=dp.get_precision('Account')),
+        'current_out_count':fields.function(_get_current,multi='all',string='current_out',digits_compute=dp.get_precision('Account')
 	),
-        'current_out_money':fields.function(_get_current,multi='sums',string='current_out_money',digits_compute=dp.get_precision('Account')
-	),	'inventory_out_count':fields.function(_get_current,multi='sums',string='inventory_out_count',digits_compute=dp.get_precision('Account')
+        'current_out_money':fields.function(_get_current,multi='all',string='current_out_money',digits_compute=dp.get_precision('Account')
 	),
-      'inventory_out_money':fields.function(_get_current,multi='sums',string='inventory_out_money',digits_compute=dp.get_precision('Account')
+        'inventory_out_count':fields.function(_get_current,multi='all',string='inventory_out_count',digits_compute=dp.get_precision('Account')
 	),
-        'end_remainder':fields.function(_get_current,multi='sums',string='end_remainder',digits_compute=dp.get_precision('Account')
+      'inventory_out_money':fields.function(_get_current,multi='all',string='inventory_out_money',digits_compute=dp.get_precision('Account')
 	),
-        'end_money':fields.function(_get_current,multi='sums',string='end_money',digits_compute=dp.get_precision('Account')
+        'end_remainder':fields.function(_get_current,multi='all',string='end_remainder',digits_compute=dp.get_precision('Account')
+	),
+        'end_money':fields.function(_get_current,multi='all',string='end_money',digits_compute=dp.get_precision('Account')
 	),
         'period':fields.many2one('account.period','period'),
         'location':fields.many2one('stock.location','location'),
@@ -309,7 +311,7 @@ class rainsoft_account_stock_line(osv.osv):
               'inventory_in_money':res[line.id]['inventory_in_money'],
 	      'current_in_count':res[line.id]["current_in_count"],
 	      'current_in_money':res[line.id]["current_in_money"],
-              'inventory_out_count':res[line.id]["inventory_in_money"],
+              'inventory_out_count':res[line.id]["inventory_out_count"],
               'inventory_out_money':res[line.id]["inventory_out_money"],
 	      'current_out_count':res[line.id]["current_out_count"],
 	      'current_out_money':res[line.id]["current_out_money"],

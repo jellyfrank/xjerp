@@ -15,17 +15,27 @@ class rainsoft_product(osv.osv):
 
 	def _get_total_price(self,cr,uid,ids,name,args,context=None):
 	    res={}
-	    products = self.browse(cr,uid,ids)
+	    products = self.browse(cr,uid,ids,context=context)
 	    for product in products:
 		total = product.lst_price * product.qty_available
 		res[product.id]=total
 	    return res
 
+        def _get_cost_total(self,cr,uid,ids,name,args,context=None):
+            res={}
+	    products = self.browse(cr,uid,ids,context=context)
+	    for product in products:
+		total = product.standard_price * product.qty_available
+		res[product.id]=total
+	    return res
+
+
 
 	_description="add constraints"
 	_columns={
+            'cost_total':fields.function(_get_cost_total,type="float",string="Cost Total"),
 	    'total':fields.function(_get_total_price,type="float",string="Total"),
-        'loc_rack':fields.many2one('rainsoft.rack',string="Rack"),
+            'loc_rack':fields.many2one('rainsoft.rack',string="Rack"),
 	}
 	_sql_constraints=[
 			('rainsoft_product_default_code','unique(default_code)','default_code must be unique'),
@@ -105,3 +115,10 @@ class rainsoft_catetory(osv.Model):
 						if new_limit:
 								self.get_children_category(cr,uid,children_ids,res,new_limit,context=context)
 						res.append(x_id)
+class rainsoft_pricelist_supplierinfo(osv.Model):
+    _name="pricelist.partnerinfo"
+    _inherit="pricelist.partnerinfo"
+
+    _columns={
+            "comment":fields.char("Comment"),
+            }

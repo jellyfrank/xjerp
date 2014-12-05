@@ -34,15 +34,26 @@ class rainsoft_purchase_order(osv.osv):
                     res.append(v.id)
         return [('id','in',res)]
 
+    def _get_sale_order_comment(self,cr,uid,ids,name,args,context=None):
+        res={}
+        sale_object = self.pool.get('sale.order')  
+        for id in ids:
+            purchase_order = self.browse(cr,uid,id,context=context)
+            sale_order_ids = sale_object.search(cr,uid,[('name','=',purchase_order.origin)],context=context)
+            sale_orders = sale_object.browse(cr,uid,sale_order_ids,context=context)
+            if len(sale_orders):
+                res[id]=sale_orders[0].note
+        return res
 
 
     _columns={
         'client':fields.function(_get_client,fnct_search=_search_client,type='many2one',obj='res.partner',method=True,string='Client'),
         'pay_type':fields.related('partner_id','property_supplier_payment_term',type="many2one",relation='account.payment.term',string='Pay Type'),
+        's_comment':fields.function(_get_sale_order_comment,'Sale Note',type="text"),
 
     }
 
-    def onchange_partner_id(self, cr, uid, ids, partner_id):
+    def onchange_partner_id(self, cr, uid, ids, partner_id,context=None):
 			partner = self.pool.get('res.partner')
 			if not partner_id:
 					return {'value': {
@@ -51,11 +62,15 @@ class rainsoft_purchase_order(osv.osv):
 						}}
 			supplier_address = partner.address_get(cr, uid, [partner_id], ['default'])
 			supplier = partner.browse(cr, uid, partner_id)
-			
-			if datetime.datetime.strptime(supplier.contract_end_date,"%Y-%m-%d")<datetime.datetime.now():
-					return{'warning':{'title':'错误','message':'供应商合同已过期'},'value':{'partner_id':''}}
-			if datetime.datetime.strptime(supplier.contract_end_date,'%Y-%m-%d')-datetime.datetime.now()<datetime.timedelta(days=45):
-					raise osv.except_osv(_('Tip'),_('该供应商合同期限将于45天内到期！'))
+
+			#Read contract from module account.analytic.account
+			contracts = self.pool.get('account.analytic.account').search(cr,uid,[('partner_id','=',partner_id)],context=context)
+			if len(contracts):
+					contract = self.pool.get('account.analytic.account').browse(cr,uid,contracts[0],context=context)
+					if datetime.datetime.strptime(contract.date,"%Y-%m-%d")<datetime.datetime.now():
+							return{'warning':{'title':'错误','message':'供应商合同已过期'},'value':{'partner_id':''}}
+					if datetime.datetime.strptime(contract.date,'%Y-%m-%d')-datetime.datetime.now()<datetime.timedelta(days=45):
+							raise osv.except_osv(_('Tip'),_('该供应商合同期限将于45天内到期！'))
 			return {'value': {
 					'pricelist_id': supplier.property_product_pricelist_purchase.id,
 					'fiscal_position': supplier.property_account_position and supplier.property_account_position.id or False,

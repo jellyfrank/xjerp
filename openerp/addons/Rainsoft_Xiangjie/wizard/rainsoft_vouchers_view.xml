@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+		<data>
+				<record model="ir.ui.view" id="rainsoft_vouchers_form_view">
+						<field name="name">Post</field>
+						<field name="model">rainsoft.vouchers</field>
+						<field name="type">form</field>
+						<field name="arch" type="xml">
+								<form string="Post" version="7.0">
+										<separator colspan='4' string='Do you really want to post all joural entries?'/>
+										<footer>
+												<button name="btn_post" string="Post" type="object" class="oe_highlight"/>
+												or
+												<button string="Cancel" class="oe_link" special="cancel"/>
+										</footer>
+								</form>
+						</field>
+
+				</record>
+
+
+				<record model="ir.actions.act_window" id="rainsoft_vouchers_actions">
+						<field name="name">Post</field>
+						<field name="res_model">rainsoft.vouchers</field>
+						<field name="type">ir.actions.act_window</field>
+						<field name="view_type">form</field>
+						<field name="view_form">form</field>
+						<field name="target">new</field>
+						<field name="view_id" ref="rainsoft_vouchers_form_view"/>
+						<field name="multi">True</field>
+				</record>
+				
+
+				<record model="ir.values" id="rainsoft_values_vouchers">
+						<field name="model_id" ref="account.model_account_move"/>
+						<field name="name">Post</field>
+						<field name="key2">client_action_multi</field>
+						<field name="value" eval="'ir.actions.act_window,'+str(ref('rainsoft_vouchers_actions'))"/>
+						<field name="key">action</field>
+						<field name="model">account.move</field>
+				</record>
+		</data>
+</openerp>

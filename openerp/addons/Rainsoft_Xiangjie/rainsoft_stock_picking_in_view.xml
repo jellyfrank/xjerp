@@ -10,7 +10,7 @@
                 <field name="origin" position="after">
                     <field name="origin_partner" />
                 </field>
-		<field name="partner_id" position="attributes">
+				<field name="partner_id" position="attributes">
                     <attribute name="required">True</attribute>
                 </field>
             </field>

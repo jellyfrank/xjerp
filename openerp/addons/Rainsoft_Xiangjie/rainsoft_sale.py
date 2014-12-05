@@ -57,7 +57,7 @@ class rainsoft_sale(osv.osv):
 							lines=[]
 							for row in range(4,sh.nrows-5):
 									if sh.cell(row,1).value and sh.cell(row,5).value:
-											product_no = int(str(sh.cell(row,1).value).strip().split('.')[0])
+											product_no = str(sh.cell(row,1).value).strip().split('.')[0]
 											product_amount=sh.cell(row,5).value
 											product_price =sh.cell(row,6).value
 											product_method=sh.cell(row,12).value
@@ -101,11 +101,12 @@ class rainsoft_sale(osv.osv):
 				line={
 					'name':product.name,
 					'product_id':product.id,
-					'price_unit':product.list_price,
+					'price_unit':myproduct.unit_price or product.list_price,
 					'product_uom':product.uom_id.id,
 					'product_uom_qty':myproduct.amount,
-                    'type':product.procure_method,
-                    'state':'draft',
+                                        'type':product.procure_method,
+                                        'state':'draft',
+                                        'comment':myproduct.comment,
 					}
 				lines.append(line) 
 			return {'value':{'order_line':lines}}
@@ -237,6 +238,7 @@ class rainsoft_sale_line(osv.osv):
         'categ_id': fields.related('product_id', 'categ_id', type='many2one', relation='product.category', string=u'分类',
                                    store=True),
         'categ_name': fields.function(_categ_name_fun, type='char', multi='cate', method=True, string=u'分类'),
-		'is_internal':fields.related('order_partner_id','is_internal',type="boolean",string="is internal"),
+    	'is_internal':fields.related('order_partner_id','is_internal',type="boolean",string="is internal"),
+        'comment':fields.char('Comment'),
     }
 rainsoft_sale_line()

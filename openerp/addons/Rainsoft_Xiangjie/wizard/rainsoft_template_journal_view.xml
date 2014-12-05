@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+		<data>
+				<record model="ir.ui.view" id="rainsoft_template_journal_form_view">
+						<field name="name">Template Journal Form</field>
+						<field name="model">rainsoft.template.journal</field>
+						<field name="type">form</field>
+						<field name="arch" type="xml">
+								<form string='Template Journal' version="7.0">
+										<separator colspan='4' string='Do you really want to create jourals?'/>
+										<footer>
+												<button name="btn_create" string="OK,Create" class="oe_highlight" type="object"/>
+												or
+												<button string="cancel" class="oe_link" special="cancel" />
+										</footer>
+								</form>
+						</field>
+				</record>
+
+
+				<record model="ir.actions.act_window" id="action_rainsoft_template_journal">
+						<field name="name">Create Journal</field>
+						<field name="res_model">rainsoft.template.journal</field>
+						<field name="view_mode">form</field>
+						<field name="view_type">form</field>
+						<field name="view_id" ref="rainsoft_template_journal_form_view" />
+						<field name="target">new</field>
+						<field name="multi">True</field>
+				</record>
+
+				<record model="ir.values" id="values_rainsoft_template">
+						<field name="model_id" ref="stock.model_stock_move"/>
+						<field name="name">Stock Move</field>
+						<field name="key2">client_action_multi</field>
+						<field name="value" eval="'ir.actions.act_window,'+str(ref('action_rainsoft_template_journal'))"/>
+						<field name="key">action</field>
+						<field name="model">stock.move</field>
+				</record>
+		</data>
+</openerp>

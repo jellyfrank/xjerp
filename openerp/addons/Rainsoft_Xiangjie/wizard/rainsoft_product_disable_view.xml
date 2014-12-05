@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+		<data>
+				<record model="ir.ui.view" id="rainsoft_product_disable_form_view">
+						<field name="name">Disable Product</field>
+						<field name="model">rainsoft.product.disable</field>
+						<field name="type">form</field>
+						<field name="arch" type="xml">
+								<form string="Disable Product" version="7.0">
+										<separator colspan='4' string='Do you really want to disable the products of your selected rows ?'/>
+										<footer>
+												<button name='btn_disable' string='OK,Disable' type='object' class='oe_highlight'/>
+												or
+												<button string="No,I regret" special='cancel' class='oe_link' />
+									</footer>
+						
+								</form>
+						</field>
+				</record>
+
+				<record model="ir.actions.act_window" id="action_rainsoft_product_disable">
+						<field name="name">Disable Product</field>
+						<field name="res_model">rainsoft.product.disable</field>
+						<field name="type">ir.actions.act_window</field>
+						<field name="view_mode">form</field>
+						<field name="view_type">form</field>
+						<field name="view_id" ref='rainsoft_product_disable_form_view'/>
+						<field name="target">new</field>
+						<field name="multi">True</field>
+				</record>
+
+
+				<record model='ir.values' id='values_rainsoft_product_disable'>
+						<field name='model_id' ref='product.model_product_product'/>
+						<field name='name'>Disable Product</field>
+						<field name='key2'>client_action_multi</field>
+						<field name='value' eval="'ir.actions.act_window,'+str(ref('action_rainsoft_product_disable'))"/>
+						<field name="key">action</field>
+						<field name="model">product.product</field>
+				</record>
+		</data>
+</openerp>

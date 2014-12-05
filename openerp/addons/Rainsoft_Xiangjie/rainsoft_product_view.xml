@@ -25,20 +25,30 @@
 				<field name="name">Rainsoft Product</field>
 				<field name="model">product.product</field>
 				<field name="inherit_id" ref="product.product_normal_form_view"/>
+				<field name="priority">16</field>
 				<field name="arch" type="xml">
+					<label for="standard_price" position="after">
+							<label id="db" string="→_→看不见我,看不见我...."/>
+					</label>
 					<field name="standard_price" position="attributes">
-						<attribute name="attrs">{'readonly':True}</attribute>
+						<attribute name="attrs">{'readonly':[('cost_method','=','average')]}</attribute>
+						<attribute name="invisible">1</attribute>
 					</field>
 				</field>
 		</record>
+
 		<record model="ir.ui.view" id="rainsoft_product_normal_form_view3">
 				<field name="name">Rainsoft Product 2</field>
 				<field name="model">product.product</field>
-				<field name="groups_id" eval="[(6,0,[ref('account.group_account_manager')])]"/>
-				<field name="inherit_id" ref="product.product_normal_form_view"/>
+				<field name="groups_id" eval="[(6,0,[93])]"/>
+				<field name="inherit_id" ref="rainsoft_product_normal_form_view2"/>
+				<field name="priority">10</field>
 				<field name="arch" type="xml">
+					<xpath expr="//label[@id='db']" position="replace">
+					</xpath>
 					<field name="standard_price" position="attributes">
 							<attribute name="attrs">{'readonly':[('cost_method','=','average')]}</attribute>
+							<attribute name="invisible">0</attribute>
 					</field>
 				</field>
 		</record>
@@ -46,11 +56,14 @@
 		    <field name="name">rainsoft.product</field>
 		    <field name="type">tree</field>
 		    <field name="model">product.product</field>
+			<field name="groups_id" eval="[(6,0,[76])]"/>
 		    <field name="inherit_id" ref="product.product_product_tree_view"/>
 		    <field name="arch" type="xml">
-			<field name="lst_price" position="after">
-			    <field name="total" sum="Total"/>
-			</field>			
+					<field name="lst_price" position="after">
+						<field name="standard_price"/>
+						<field name="cost_total" sum="Total"/>
+						<field name="total" sum="Total"/>
+					</field>			
 		    </field>
 		</record>
 		<record model="ir.ui.view" id="rainsoft_product_search_view">
@@ -60,6 +73,16 @@
 				<field name="arch" type="xml">
 						<xpath expr="//field[@string='Product']" position="after">
 								<field name="categ_id" string="Categ"/>
+						</xpath>
+				</field>
+		</record>
+		<record model="ir.ui.view" id="rainsoft_product_supplierinfo_view">
+				<field name="name">rainsoft.product.supplierinfo</field>
+				<field name="model">product.supplierinfo</field>
+				<field name="inherit_id" ref="product.product_supplierinfo_form_view"/>
+				<field name="arch" type="xml">
+						<xpath expr="//tree[@string='Pricelist']/field[@name='price']" position="after">
+								<field name="comment"/>
 						</xpath>
 				</field>
 		</record>

@@ -47,6 +47,7 @@ class rainsoft_partner(osv.osv):
 			"city":fields.many2one('rainsoft.city','City'),
 			"district":fields.many2one('rainsoft.district','District'),
 			"is_internal":fields.boolean('Is internal department',help="check if it's a internal department"),
+                        'customer_type':fields.selection([('xj_i',u'香界内部'),('xj_w',u'香界外部'),('customer',u'客户')],'Customer Type'),
             "brand":fields.many2one('rainsoft.brand','Customer Brand'),
 			}
 	_order="state_id,city"

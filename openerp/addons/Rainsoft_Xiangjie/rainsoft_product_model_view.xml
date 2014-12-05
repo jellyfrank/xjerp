@@ -17,9 +17,14 @@
 						</div>
 						<notebook>
 							<page string="Products">
-								<tree string="Products" editable="bottom">
-									<field name="model_id" required='True'/>
-								</tree>								
+									<field name="model_id">
+											<tree string="Products" editable="bottom">
+													<field name="product_id"/>
+													<field name="unit_price"/>
+													<field name="amount"/>
+													<field name="comment"/>
+											</tree>
+									</field>
 							</page>
 						</notebook>
 					</sheet>

@@ -3,40 +3,75 @@
 from openerp.osv import osv,fields
 from openerp.tools.translate import _
 from openerp import netsvc
+import openerp.addons.decimal_precision as dp
+
+class rainsoft_picking(osv.Model):
+    _name="stock.picking"
+    _inherit="stock.picking"
+    
+    def _get_note(self,cr,uid,ids,fields,args,context=None):
+        res={}
+        for id in ids:
+            origin = self.browse(cr,uid,id).origin
+            sale_order_ids = self.pool.get('sale.order').search(cr,uid,[('name','=',origin)],context=context)
+            sale_orders = self.pool.get('sale.order').browse(cr,uid,sale_order_ids,context=context)
+            if len(sale_orders):
+                res[id]=sale_orders[0].note
+        return res
+    
+    _columns={
+                    'deliver_state':fields.selection([('delivering',u'在途'),('delivered',u'已收货')],'Delivery State',select=True),
+                    'out_type':fields.selection([('sale','Sale'),('proxy','Proxy'),],'Out Type',select=True),
+                    's_note':fields.function(_get_note,string='Note',type='char'),
+                    }
+
+
+
 
 class rainsoft_picking_out(osv.osv):
-    _name='stock.picking.out'
-    _inherit='stock.picking.out'
+		_name='stock.picking.out'
+		_inherit='stock.picking.out'
 
-    def send_sms(self,cr,uid,ids,context=None):
-        mod_obj=self.pool.get('ir.model.data')
-        form_res=mod_obj.get_object_reference(cr,uid,'Rainsoft_Xiangjie','rainsoft_sms_form_view')
-        form_id = form_res and form_res[1] or False
-        value ={
-               'name':_('Send Text Message'),
-               'view_mode': 'form',
-               'iew_id': False,
-               'views': [(form_id,'form')],
-               'view_type': 'form',            
-               'res_model': 'rainsoft.sms', # object name
-               'type': 'ir.actions.act_window',
-               'target': 'new', # if you want to open the form in new tab
-               }
-	
-	wf_service = netsvc.LocalService("workflow")
-	out_order = self.browse(cr,uid,ids[0],context=context)
-	sale_order_ids = self.pool.get('sale.order').search(cr,uid,[('name','=',out_order.origin)],context=context)
-	sale_order = self.pool.get('sale.order').browse(cr,uid,sale_order_ids[0],context=context)
-	for line in sale_order.order_line:
-	    mrp = self.pool.get('mrp.bom').search(cr,uid,[('product_id','=',line.product_id.id),('bom_id','=',False),('type','=','phantom')],context={})
-	    if len(mrp):
-		p_order_ids = self.pool.get('procurement.order').search(cr,uid,[('origin','=',out_order.origin),('product_id','=',line.product_id.id)],context=context)
+                def _get_note(self,cr,uid,ids,fields,args,context=None):
+                    res={}
+                    for id in ids:
+                        origin = self.browse(cr,uid,id).origin
+                        sale_order_ids = self.pool.get('sale.order').search(cr,uid,[('name','=',origin)],context=context)
+                        sale_orders = self.pool.get('sale.order').browse(cr,uid,sale_order_ids,context=context)
+                        if len(sale_orders):
+                            res[id]=sale_orders[0].note
+                    return res
+
 		
-		if len(p_order_ids):
-		    wf_service.trg_trigger(uid, 'procurement.order', p_order_ids[0],cr)
-		    
-        return value
-      
+		_columns={
+				'deliver_state':fields.selection([('delivering',u'在途'),('delivered',u'已收货')],'Delivery State',select=True),
+                                'out_type':fields.selection([('sale','Sale'),('proxy','Proxy'),],'Out Type',select=True),
+                                's_note':fields.function(_get_note,'Note',type='char'),
+				}
+
+		_defaults={
+						'deliver_state':'delivering',
+						}
+		
+		def send_sms(self,cr,uid,ids,context=None):
+				mod_obj=self.pool.get('ir.model.data')
+				form_res=mod_obj.get_object_reference(cr,uid,'Rainsoft_Xiangjie','rainsoft_sms_form_view')
+				form_id = form_res and form_res[1] or False
+				value ={
+					   'name':_('Send Text Message'),
+					   'view_mode': 'form',
+					   'view_id': False,
+					   'views': [(form_id,'form')],
+					   'view_type': 'form',            
+					   'res_model': 'rainsoft.sms', # object name
+					   'type': 'ir.actions.act_window',
+					   'target': 'new', # if you want to open the form in new tab
+					   }
+					
+				return value
+                def write(self,cr,uid,ids,values,context=None):
+                    return super(rainsoft_picking_out,self).write(cr,uid,ids,values,context=context)
+			  
 rainsoft_picking_out()
 
 class rainsoft_stock_move(osv.osv):

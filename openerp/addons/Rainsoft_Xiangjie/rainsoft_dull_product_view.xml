@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding="utf-8"?>
+<openerp>
+		<data>
+				<record model='ir.ui.view' id='rainsoft_dull_product_form_view'>
+						<field name='name'>Dull Product</field>
+						<field name='model'>rainsoft.dull.product</field>
+						<field name='type'>form</field>
+						<field name="arch" type="xml">
+								<form string="Dull Product" version="7.0">
+										<separator colspan='4' string='Define your dull product month'/>
+										<group>
+												<field name="month"/>
+										</group>
+										<footer>
+												<button name='btn_analyse' string='OK' type="object" class="oe_highlight" context="{'month':month}"/>
+												or
+												<button string="cancel" special="cancel" class="oe_link"/>
+										</footer>
+								</form>
+						</field>
+				</record>
+
+				<record model="ir.actions.act_window" id="actions_rainsoft_dull_product">
+						<field name="name">Dull Product</field>
+						<field name="res_model">rainsoft.dull.product</field>
+						<field name="view_mode">form</field>
+						<field name="view_type">form</field>
+						<field name="target">new</field>
+						<field name="multi">True</field>
+				</record>
+
+				<menuitem id='menu_dull_product' name='Dull Product' action='actions_rainsoft_dull_product' parent='purchase.menu_procurement_management_product'/>
+
+		</data>
+</openerp>

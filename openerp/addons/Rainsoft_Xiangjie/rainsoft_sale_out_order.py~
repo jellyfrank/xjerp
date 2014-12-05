@@ -28,7 +28,6 @@ from openerp.tools.translate import _
 
 class rainsoft_sale_out_order(osv.osv):
     _name='rainsoft.saleout'
-    _inherit=['mail.thread']
     _description='Compare Sale Order and Delivery Order'
     
     def _amount_all(self, cr, uid, ids, field_name, arg, context=None):
@@ -264,11 +263,8 @@ class rainsoft_sale_out_line(osv.osv):
 	    if len(mrp)>0:	      
 		mrp_lines = self.search(cr,uid,[('mrp_product_id','=',line.product_id.id),('order_id','=',line.order_id.id)],context=context)		
 		#relation
-		x = min([self.browse(cr,uid,mrp_line,context=context).amount for mrp_line in mrp_lines] or [0])/line.amount		
-                if x!=0:
-                    amount = min([self.browse(cr,uid,mrp_line,context=context).send_amount for mrp_line in mrp_lines] or [0])/x		
-                else:
-                    amount = 0
+		x = min([self.browse(cr,uid,mrp_line,context=context).amount for mrp_line in mrp_lines])/line.amount		
+		amount = min([self.browse(cr,uid,mrp_line,context=context).send_amount for mrp_line in mrp_lines])/x		
 		res[line.id]=amount
         return res
 

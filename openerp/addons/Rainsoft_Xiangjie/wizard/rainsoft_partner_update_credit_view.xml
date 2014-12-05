@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+		<data>
+				<record model="ir.ui.view" id="rainsoft_partner_update_credit">
+						<field name="name">Rainsoft Partner Update Credit</field>
+						<field name="model">rainsoft.partner.update.credit</field>
+						<field name="type">form</field>
+						<field name="arch" type="xml">
+								<form string="update credit" version="7.0">
+										<separator colspan='4' string='Are you sure to update the selected partner ?'/>
+										<group>
+												<field name="credit"/>
+										</group>
+										<footer>
+												<button name="btn_update" string="OK" type="object" class="oe_highlight" context="{'credit':credit}"/>
+												or
+												<button string="cancel" class="oe_link" special="cancel"/>
+										</footer>
+								</form>
+						</field>
+				</record>
+
+				<record model="ir.actions.act_window" id="action_rainsoft_partner_update_credit">
+						<field name="name">Update Credit</field>
+						<field name="res_model">rainsoft.partner.update.credit</field>
+						<field name="view_mode">form</field>
+						<field name="view_type">form</field>
+						<field name="view_id" ref="rainsoft_partner_update_credit"/>
+						<field name="target">new</field>
+						<field name="multi">True</field>
+				</record>
+
+				<record model="ir.values" id="values_partner_credit_update">
+						<field name="model_id" ref="base.model_res_partner"/>
+						<field name="name">Update Credit</field>
+						<field name="key2">client_action_multi</field>
+						<field name="value" eval="'ir.actions.act_window,'+str(ref('action_rainsoft_partner_update_credit'))"/>
+						<field name="key">action</field>
+						<field name="model">res.partner</field>
+				</record>
+		</data>
+</openerp>
